@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kartvizit – ElbLicht Pflegedienst</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #A8B5C0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 64px;
+      padding: 64px 24px 88px;
+      min-height: 100vh;
+    }
+
+    .section-label {
+      font-size: 9px;
+      font-weight: 600;
+      color: #5e7080;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .card-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* 85mm × 55mm → 340px × 220px */
+    .card {
+      width: 340px;
+      height: 220px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow:
+        0 40px 90px rgba(0,0,0,0.30),
+        0 12px 30px rgba(0,0,0,0.16);
+      position: relative;
+    }
+
+    /* ─────────── ÖN YÜZ ─────────── */
+    .front {
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* Üst marka mavi şeridi */
+    .front::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #0F2952, #2A5298, #4A90D9);
+    }
+
+    .front .logo-zone {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 22px 36px 14px;
+    }
+
+    .front .logo-zone img {
+      width: 232px;
+      height: auto;
+      display: block;
+    }
+
+    /* Alt koyu panel */
+    .front .foot {
+      background: #0F2952;
+      padding: 10px 22px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      position: relative;
+    }
+
+    .front .foot::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #4A90D9 40%, #4A90D9 60%, transparent);
+      opacity: 0.45;
+    }
+
+    /* İki yanındaki ince çizgiler */
+    .front .foot-line {
+      flex-shrink: 0;
+      width: 22px;
+      height: 1px;
+      background: rgba(255,255,255,0.18);
+    }
+
+    .front .slogan {
+      font-size: 10px;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.52);
+      letter-spacing: 0.03em;
+      text-align: center;
+    }
+
+    .front .slogan em {
+      font-style: normal;
+      font-weight: 500;
+      color: rgba(255,255,255,0.80);
+    }
+
+
+    /* ─────────── ARKA YÜZ ─────────── */
+    .back {
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* Sol marka mavisi şerit */
+    .back::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, #4A90D9, #2A5298, #0F2952);
+      z-index: 2;
+    }
+
+    /* ─ Üst: isim + logo ─ */
+    .back .head {
+      padding: 16px 18px 13px 20px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      border-bottom: 1px solid #EBF0F6;
+    }
+
+    .back .name-block {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .back .person-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0F2952;
+      letter-spacing: -0.032em;
+      line-height: 1;
+    }
+
+    .back .title-row {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .back .title-dash {
+      width: 14px;
+      height: 2px;
+      background: #4A90D9;
+      flex-shrink: 0;
+      border-radius: 1px;
+    }
+
+    .back .person-title {
+      font-size: 6.5px;
+      font-weight: 600;
+      color: #7A90A8;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    /* Logo — doğal renkleriyle, beyaz zemin üstünde */
+    .back .head-logo {
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .back .head-logo img {
+      width: 80px;
+      height: auto;
+      display: block;
+    }
+
+    /* ─ İletişim ─ */
+    .back .contacts {
+      flex: 1;
+      padding: 12px 18px 10px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 7px;
+    }
+
+    .back .crow {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+
+    .back .crow-label {
+      font-size: 6px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #4A90D9;
+      min-width: 34px;
+      flex-shrink: 0;
+      padding-top: 1.5px;
+    }
+
+    .back .crow-val {
+      font-size: 8.5px;
+      font-weight: 400;
+      color: #1E293B;
+      line-height: 1.45;
+    }
+
+    /* ─ Alt bant ─ */
+    .back .foot {
+      padding: 8px 18px 12px 20px;
+      border-top: 1px solid #EBF0F6;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .back .website {
+      font-size: 7.5px;
+      font-weight: 600;
+      color: #2A5298;
+      letter-spacing: 0.01em;
+    }
+
+
+    /* ── PRINT / PDF ── */
+    @media print {
+      @page { size: 85mm 55mm; margin: 0; }
+      body {
+        background: transparent;
+        padding: 0; gap: 0;
+        display: block;
+      }
+      .section-label { display: none; }
+      .card-wrapper { display: block; }
+      .card {
+        width: 85mm; height: 55mm;
+        box-shadow: none; border-radius: 0;
+        page-break-after: always;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ÖN YÜZ -->
+  <div class="card-wrapper">
+    <div class="section-label">Ön Yüz</div>
+    <div class="card front">
+      <div class="logo-zone">
+        <img src="/images/elb-licht-trans.png" alt="ElbLicht Pflegedienst" />
+      </div>
+      <div class="foot">
+        <span class="foot-line"></span>
+        <span class="slogan">Ihr Licht in der <em>häuslichen Pflege.</em></span>
+        <span class="foot-line"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARKA YÜZ -->
+  <div class="card-wrapper">
+    <div class="section-label">Arka Yüz</div>
+    <div class="card back">
+      <div class="head">
+        <div class="name-block">
+          <div class="person-name">Akif Patan</div>
+          <div class="title-row">
+            <div class="title-dash"></div>
+            <div class="person-title">Pflegedienstleiter</div>
+          </div>
+        </div>
+        <div class="head-logo">
+          <img src="/images/elb-licht-trans.png" alt="ElbLicht Pflegedienst" />
+        </div>
+      </div>
+      <div class="contacts">
+        <div class="crow">
+          <span class="crow-label">Tel</span>
+          <span class="crow-val">040 / 560 69 787</span>
+        </div>
+        <div class="crow">
+          <span class="crow-label">E-Mail</span>
+          <span class="crow-val">info@pflegedienst-elblicht.de</span>
+        </div>
+        <div class="crow">
+          <span class="crow-label">Adresse</span>
+          <span class="crow-val">Clemens-Schultz-Str. 76<br>20359 Hamburg</span>
+        </div>
+      </div>
+      <div class="foot">
+        <span class="website">pflegedienst-elblicht.de</span>
+      </div>
+    </div>
+  </div>
+
+
+<script>
+  // PDF üretimi için: ?side=front veya ?side=back
+  const side = new URLSearchParams(location.search).get('side');
+  if (side === 'front' || side === 'back') {
+    const wrappers = document.querySelectorAll('.card-wrapper');
+    const keep = side === 'front' ? 0 : 1;
+    wrappers.forEach((el, i) => { if (i !== keep) el.remove(); });
+    document.body.style.cssText = 'margin:0;padding:0;background:transparent;display:block;';
+  }
+</script>
+</body>
+</html>

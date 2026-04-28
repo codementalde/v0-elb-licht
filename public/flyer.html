@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flyer – ElbLicht Pflegedienst</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,500&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0f172a;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 48px 24px;
+    }
+
+    /* A5 = 148 × 210 mm │ 96 dpi ≈ 559 × 794 px │ 3 mm = 11 px */
+    .page {
+      width: 559px;
+      height: 794px;
+      background: #fff;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 40px 100px rgba(0,0,0,.6), 0 0 0 1px rgba(0,0,0,.12);
+    }
+
+    /* ════════════════════════════════
+       1. HERO — fotoğraf + başlık
+    ════════════════════════════════ */
+    .hero {
+      position: relative;
+      height: 252px;
+      flex-shrink: 0;
+    }
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 28%;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(165deg,
+        rgba(15,76,129,.55)  0%,
+        rgba(13,148,136,.25) 35%,
+        rgba(5,12,30,.92)   100%
+      );
+    }
+    /* Eyebrow: sol üst köşe — yüzlerin üzerinde değil */
+    .hero-eyebrow {
+      position: absolute;
+      top: 11px; left: 11px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      color: #5eead4;
+      background: rgba(5,12,30,.45);
+      padding: 4px 8px;
+      border-radius: 3px;
+      z-index: 1;
+    }
+    /* Başlık + alt: sadece sol-sağ ve alt hizalı */
+    .hero-inner {
+      position: absolute;
+      left: 11px; right: 11px; bottom: 13px;
+    }
+    .hero-h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 700;
+      line-height: 1.06;
+      letter-spacing: -.025em;
+      color: #fff;
+      text-shadow: 0 3px 28px rgba(0,0,0,.5);
+    }
+    .hero-h1 em { font-style: italic; color: #7de8e0; }
+    .hero-sub {
+      margin-top: 9px;
+      font-size: 11.5px;
+      font-weight: 300;
+      color: rgba(255,255,255,.68);
+      letter-spacing: .04em;
+    }
+
+    /* Accent stripe */
+    .accent {
+      height: 4px;
+      flex-shrink: 0;
+      background: linear-gradient(90deg, #0d9488 0%, #1a73b8 55%, transparent 100%);
+    }
+
+    /* ════════════════════════════════
+       2. LOGO ROW
+    ════════════════════════════════ */
+    .logo-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 22px 10px;
+      border-bottom: 1.5px solid #f1f5f9;
+      flex-shrink: 0;
+    }
+    .logo-row img {
+      height: 50px;
+      width: auto;
+      object-fit: contain;
+      object-position: left;
+    }
+    .sgb-tag {
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: #166534;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 100px;
+      padding: 4px 12px;
+      white-space: nowrap;
+    }
+
+    /* ════════════════════════════════
+       3. LEISTUNGEN — 2-Spalten-Liste
+    ════════════════════════════════ */
+    .leistungen {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 14px 22px 12px;
+    }
+    .section-label {
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      color: #0d9488;
+      margin-bottom: 11px;
+      flex-shrink: 0;
+    }
+    .svc-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(3, 1fr);
+    }
+    .svc {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 9px 16px 9px 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .svc:nth-child(even) {
+      padding-left: 16px;
+      padding-right: 0;
+      border-left: 1px solid #f1f5f9;
+    }
+    .svc:nth-last-child(-n+2) { border-bottom: none; }
+
+    .svc-bullet {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 6px;
+      background: #0d9488;
+    }
+    .svc:nth-child(2n)   .svc-bullet { background: #1a73b8; }
+    .svc:nth-child(5)    .svc-bullet { background: #7c3aed; }
+    .svc:nth-child(6)    .svc-bullet { background: #0d9488; }
+
+    .svc-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.2;
+    }
+    .svc-desc {
+      font-size: 10.5px;
+      font-weight: 400;
+      color: #64748b;
+      line-height: 1.45;
+      margin-top: 2px;
+    }
+
+    /* ════════════════════════════════
+       4. CTA BAND — Handlungsaufforderung
+    ════════════════════════════════ */
+    .cta-band {
+      background: linear-gradient(100deg, #0f4c81 0%, #0d9488 100%);
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .cta-action {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.7);
+      margin-bottom: 3px;
+    }
+    .cta-phone {
+      font-size: 26px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -.02em;
+      line-height: 1;
+    }
+    .cta-note {
+      margin-top: 3px;
+      font-size: 9px;
+      color: rgba(255,255,255,.6);
+      font-weight: 400;
+    }
+    .cta-badge {
+      flex-shrink: 0;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 10px;
+      padding: 9px 14px;
+      text-align: center;
+    }
+    .cta-badge-line1 {
+      font-size: 8px;
+      font-weight: 600;
+      color: rgba(255,255,255,.65);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 3px;
+    }
+    .cta-badge-langs {
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: .04em;
+    }
+
+    /* ════════════════════════════════
+       5. FOOTER — Kontakt
+    ════════════════════════════════ */
+    .footer {
+      background: #080e20;
+      padding: 12px 22px 13px;
+      flex-shrink: 0;
+    }
+    .erfahrung-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(90deg, #0d9488 0%, #0f4c81 100%);
+      color: #fff;
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: .05em;
+      padding: 4px 11px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 20px;
+    }
+    .ci {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+    }
+    .ci svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: #0d9488;
+    }
+    .ci-text { display: flex; flex-direction: column; gap: 1px; }
+    .ci-label {
+      font-size: 7px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.28);
+    }
+    .ci-value {
+      font-size: 11px;
+      font-weight: 400;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+    .ci-geo {
+      font-size: 9px;
+      color: rgba(255,255,255,.3);
+      margin-top: 1px;
+    }
+
+    /* ════════════════════════════════
+       PRINT / PDF  — 154×216 mm (148×210 trim + 3 mm bleed her yanda)
+       Trim çizgisi: (3mm,3mm) → (151mm,213mm)
+       İçerik güvenli alan: sayfa kenarından min 6 mm
+    ════════════════════════════════ */
+    @media print {
+      @page { size: 154mm 216mm; margin: 0; }
+
+      *, *::before, *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      body { background: transparent; display: block; padding: 0; margin: 0; }
+
+      /* Sayfa = tam bleed boyutu */
+      .page { width: 154mm; height: 216mm; box-shadow: none; border-radius: 0; }
+
+      /* Hero: üst 3mm bleed kaplıyor → trim'den sonra 67mm görünür */
+      .hero { height: 70mm; }
+
+      /* Eyebrow: sayfa üstünden 6mm = trim'den 3mm güvenli */
+      .hero-eyebrow { top: 6mm; left: 6mm; }
+
+      /* Başlık + alt metin: hero alt kenarından 4mm yukarıda */
+      .hero-inner { left: 6mm; right: 6mm; bottom: 4mm; }
+
+      /* Sol/sağ iç boşluklar: 6mm = 3mm bleed + 3mm güvenli */
+      .logo-row,
+      .leistungen,
+      .cta-band,
+      .footer { padding-left: 6mm; padding-right: 6mm; }
+
+      /* Footer: alt 3mm bleed kaplıyor — padding-bottom arttırıldı */
+      .footer { padding-bottom: 6mm; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 1. HERO -->
+  <div class="hero">
+    <img class="hero-photo" src="./images/hero-care.jpg" alt="" />
+    <div class="hero-overlay"></div>
+    <p class="hero-eyebrow">Ambulanter Pflegedienst · Hamburg</p>
+    <div class="hero-inner">
+      <h1 class="hero-h1">Ihr Licht in der<br><em>häuslichen</em> Pflege.</h1>
+      <p class="hero-sub">Respekt · Empathie · Fachliche Kompetenz</p>
+    </div>
+  </div>
+  <div class="accent"></div>
+
+  <!-- 2. LOGO -->
+  <div class="logo-row">
+    <img src="./images/elb-licht-trans.png" alt="ElbLicht Pflegedienst" />
+    <span class="sgb-tag">✓ SGB V &amp; SGB XI Zugelassen</span>
+  </div>
+
+  <!-- 3. LEISTUNGEN -->
+  <div class="leistungen">
+    <p class="section-label">Unsere Leistungen</p>
+    <div class="svc-grid">
+
+      <div class="svc">
+        <div class="svc-bullet"></div>
+        <div>
+          <div class="svc-name">Grundpflege</div>
+          <div class="svc-desc">Körperpflege & Mobilisation</div>
+        </div>
+      </div>
+
+      <div class="svc">
+        <div class="svc-bullet"></div>
+        <div>
+          <div class="svc-name">Behandlungspflege</div>
+          <div class="svc-desc">Medikamente & Verbände</div>
+        </div>
+      </div>
+
+      <div class="svc">
+        <div class="svc-bullet"></div>
+        <div>
+          <div class="svc-name">Hauswirtschaft</div>
+          <div class="svc-desc">Kochen, Einkaufen & Reinigung</div>
+        </div>
+      </div>
+
+      <div class="svc">
+        <div class="svc-bullet"></div>
+        <div>
+          <div class="svc-name">Pflegeberatung</div>
+          <div class="svc-desc">Pflegegrad & Kassenleistungen</div>
+        </div>
+      </div>
+
+      <div class="svc">
+        <div class="svc-bullet"></div>
+        <div>
+          <div class="svc-name">Betreuung</div>
+          <div class="svc-desc">Arztbegleitung & Gedächtnistraining</div>
+        </div>
+      </div>
+
+      <div class="svc">
+        <div class="svc-bullet"></div>
+        <div>
+          <div class="svc-name">Palliativpflege</div>
+          <div class="svc-desc">Lebensqualität bis zuletzt sichern</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 4. CTA -->
+  <div class="cta-band">
+    <div class="cta-left">
+      <div class="cta-action">Jetzt kostenlos beraten lassen</div>
+      <div class="cta-phone">040 / 423 26 735</div>
+      <div class="cta-note">Mobil 24/7: 0171 / 1500 882 · Kostenfreie Erstberatung</div>
+    </div>
+    <div class="cta-badge">
+      <span class="cta-badge-line1">Wir sprechen</span>
+      <span class="cta-badge-langs">DE · TR · EN</span>
+    </div>
+  </div>
+
+  <!-- 5. FOOTER -->
+  <div class="footer">
+    <span class="erfahrung-badge">★ 20+ Jahre Erfahrung in der Pflege</span>
+    <div class="contact-grid">
+
+      <div class="ci">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <div class="ci-text">
+          <span class="ci-label">E-Mail</span>
+          <span class="ci-value">info@pflegedienst-elblicht.de</span>
+        </div>
+      </div>
+
+      <div class="ci">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        <div class="ci-text">
+          <span class="ci-label">Website</span>
+          <span class="ci-value">www.pflegedienst-elblicht.de</span>
+        </div>
+      </div>
+
+      <div class="ci">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19.5 3.5L18 2l-1.5 1.5L15 2l-1.5 1.5L12 2l-1.5 1.5L9 2 7.5 3.5 6 2 4.5 3.5 3 2v20l1.5-1.5L6 22l1.5-1.5L9 22l1.5-1.5L12 22l1.5-1.5L15 22l1.5-1.5L18 22l1.5-1.5L21 22V2l-1.5 1.5zM19 19.09H5V4.91h14v14.18zM8 15h8v2H8zm0-4h8v2H8zm0-4h8v2H8z"/></svg>
+        <div class="ci-text">
+          <span class="ci-label">Fax</span>
+          <span class="ci-value">040 / 423 26 805</span>
+        </div>
+      </div>
+
+      <div class="ci">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <div class="ci-text">
+          <span class="ci-label">Adresse</span>
+          <span class="ci-value">Clemens-Schultze-Str. 76 · 20359 Hamburg</span>
+          <span class="ci-geo">St. Pauli · Altona · Eimsbüttel</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
