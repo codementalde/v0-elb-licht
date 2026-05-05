@@ -169,7 +169,7 @@ export default function HomePage() {
       </section>
 
       {/* LEISTUNGEN — Bento Grid */}
-      <section id="leistungen-preview" className="bg-[color:var(--muted)]/60 py-20 md:py-28">
+      <section id="leistungen-preview" className="cv-auto bg-[color:var(--muted)]/60 py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--sky)]">
@@ -271,7 +271,7 @@ export default function HomePage() {
       </section>
 
       {/* WERTE - with image */}
-      <section className="py-20 md:py-28">
+      <section className="cv-auto py-20 md:py-28">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 md:grid-cols-2 md:items-center md:px-6">
           <Reveal className="relative">
             <div className="relative aspect-[5/6] overflow-hidden rounded-[2rem] border border-border/70 shadow-[0_25px_60px_-25px_color-mix(in_oklab,var(--navy)_35%,transparent)]">
@@ -335,7 +335,7 @@ export default function HomePage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-[color:var(--muted)]/60 py-20 md:py-28">
+      <section className="cv-auto bg-[color:var(--muted)]/60 py-20 md:py-28">
         <div className="mx-auto max-w-4xl px-4 md:px-6">
           <Reveal className="text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--sky)]">
@@ -375,7 +375,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 md:py-28">
+      <section className="cv-auto py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <Reveal>
             <div className="relative overflow-hidden rounded-[2rem] bg-[color:var(--navy)] px-6 py-14 text-white md:px-14 md:py-20">

@@ -5,7 +5,7 @@ import type { LegalSection } from "@/lib/i18n/dictionaries"
 
 export function LegalSections({ sections }: { sections: LegalSection[] }) {
   return (
-    <section className="py-16 md:py-20">
+    <section data-nosnippet className="py-16 md:py-20">
       <div className="mx-auto max-w-3xl px-4 md:px-6">
         <div className="flex flex-col gap-10 md:gap-12">
           {sections.map((s, i) => (

@@ -39,7 +39,7 @@ export default function LeistungenPage() {
       />
 
       {/* SERVICES GRID */}
-      <section className="py-20 md:py-28">
+      <section className="cv-auto py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {t.services.items.map((s, i) => {
@@ -90,7 +90,7 @@ export default function LeistungenPage() {
       </section>
 
       {/* PROCESS */}
-      <section className="bg-[color:var(--muted)]/60 py-20 md:py-28">
+      <section className="cv-auto bg-[color:var(--muted)]/60 py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--sky)]">
@@ -137,7 +137,7 @@ export default function LeistungenPage() {
       </section>
 
       {/* CTA BAND */}
-      <section className="bg-[color:var(--navy)] py-16 md:py-20">
+      <section className="cv-auto bg-[color:var(--navy)] py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <Reveal className="mx-auto max-w-2xl text-center text-white">
             <p className="font-serif text-2xl italic opacity-80">{t.home.ctaQuote}</p>

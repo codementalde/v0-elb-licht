@@ -127,19 +127,19 @@ export function Footer() {
           </p>
           <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <li>
-              <Link href="/impressum" className="transition-colors hover:text-navy">
+              <Link href="/impressum" rel="nofollow" className="transition-colors hover:text-navy">
                 {t.common.imprint}
               </Link>
             </li>
             <li aria-hidden className="text-border">·</li>
             <li>
-              <Link href="/cookies" className="transition-colors hover:text-navy">
+              <Link href="/cookies" rel="nofollow" className="transition-colors hover:text-navy">
                 {t.common.cookies}
               </Link>
             </li>
             <li aria-hidden className="text-border">·</li>
             <li>
-              <Link href="/datenschutz" className="transition-colors hover:text-navy">
+              <Link href="/datenschutz" rel="nofollow" className="transition-colors hover:text-navy">
                 {t.common.privacy}
               </Link>
             </li>

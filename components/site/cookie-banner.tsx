@@ -50,6 +50,7 @@ export function CookieBanner() {
           <motion.div
             key="cookie-banner"
             role="dialog"
+            data-nosnippet
             aria-live="polite"
             aria-label={t.cookieBanner.title}
             initial={{ opacity: 0, y: 16 }}

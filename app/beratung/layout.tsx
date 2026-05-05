@@ -1,9 +1,9 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Beratung anfordern",
+  title: "Kostenlose Pflegeberatung Hamburg | ElbLicht Pflegedienst",
   description:
-    "Fordern Sie jetzt kostenlos eine persönliche Pflegeberatung bei ElbLicht an. Wir melden uns innerhalb eines Werktages bei Ihnen.",
+    "Gratis Erstberatung – Pflegegrad, Leistungen & Kosten erklärt. Rückruf innerhalb 24h. Auch auf Türkisch & Englisch. Jetzt Beratung anfordern ☎ 040 560 69 787",
 }
 
 export default function BeratungLayout({ children }: { children: React.ReactNode }) {
