@@ -43,8 +43,8 @@ export const metadata: Metadata = {
     "ElbLicht",
   ],
   icons: {
-    icon: "/elb-licht-logo.svg",
-    apple: "/elb-licht-logo.svg",
+    icon: "/el-logo.png",
+    apple: "/el-logo.png",
   },
   openGraph: {
     title: "Pflegedienst Hamburg – ElbLicht | Häusliche Pflege St. Pauli",
