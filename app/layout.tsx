@@ -42,10 +42,6 @@ export const metadata: Metadata = {
     "Pflegedienst Hamburg Eimsbüttel",
     "ElbLicht",
   ],
-  icons: {
-    icon: "/el-logo.png",
-    apple: "/el-logo.png",
-  },
   openGraph: {
     title: "Pflegedienst Hamburg – ElbLicht | Häusliche Pflege St. Pauli",
     description:
