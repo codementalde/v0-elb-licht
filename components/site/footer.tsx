@@ -15,6 +15,7 @@ export function Footer() {
     { href: "/ueber-uns", label: t.nav.about },
     { href: "/kontakt", label: t.nav.contact },
     { href: "/beratung", label: t.nav.consultation },
+    { href: "/blog", label: t.nav.blog },
   ]
 
   const fullAddress = `${siteConfig.address.street}, ${siteConfig.address.zip} ${siteConfig.address.city}`

@@ -23,6 +23,7 @@ export function Navbar() {
     { href: "/leistungen", label: t.nav.services },
     { href: "/ueber-uns", label: t.nav.about },
     { href: "/kontakt", label: t.nav.contact },
+    { href: "/blog", label: t.nav.blog },
   ]
 
   useEffect(() => {
