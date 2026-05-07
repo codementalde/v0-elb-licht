@@ -134,7 +134,7 @@ function renderEmail({
           </tr>
         </table>
         <div style="color:${COLOR.muted};font-size:11px;margin-top:14px;font-family:Inter,Arial,sans-serif;">
-          ElbLicht Pflegedienst · Clemens-Schultz-Straße 76 · 20359 Hamburg · ☎ 040 560 69 787
+          ElbLicht Pflegedienst · Clemens-Schultz-Straße 76 · 20359 Hamburg · ☎ 040 423 26 735
         </div>
       </td>
     </tr>
@@ -163,7 +163,7 @@ export async function submitContact(
     console.error("[contact] SMTP_USER / SMTP_PASS missing in env")
     return {
       ok: false,
-      message: "E-Mail-Konfiguration fehlt. Bitte rufen Sie uns an: 040 560 69 787",
+      message: "E-Mail-Konfiguration fehlt. Bitte rufen Sie uns an: 040 423 26 735",
       values: data,
     }
   }
@@ -203,7 +203,7 @@ export async function submitContact(
     const detail = err instanceof Error ? err.message : String(err)
     return {
       ok: false,
-      message: `Fehler beim Senden: ${detail}. Bitte rufen Sie uns an: 040 560 69 787`,
+      message: `Fehler beim Senden: ${detail}. Bitte rufen Sie uns an: 040 423 26 735`,
       values: data,
     }
   }
@@ -231,7 +231,7 @@ export async function submitConsultation(
     console.error("[consultation] SMTP_USER / SMTP_PASS missing in env")
     return {
       ok: false,
-      message: "E-Mail-Konfiguration fehlt. Bitte rufen Sie uns an: 040 560 69 787",
+      message: "E-Mail-Konfiguration fehlt. Bitte rufen Sie uns an: 040 423 26 735",
       values: data,
     }
   }
@@ -281,7 +281,7 @@ export async function submitConsultation(
     const detail = err instanceof Error ? err.message : String(err)
     return {
       ok: false,
-      message: `Fehler beim Senden: ${detail}. Bitte rufen Sie uns an: 040 560 69 787`,
+      message: `Fehler beim Senden: ${detail}. Bitte rufen Sie uns an: 040 423 26 735`,
       values: data,
     }
   }

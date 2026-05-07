@@ -152,12 +152,14 @@ const PEOPLE = [
     name:   'Ebru Medik',
     title:  'Pflegedienstleiterin',
     mobile: '+49 174 9483 704',
+    email:  'e.medik@pflegedienst-elblicht.de',
   },
   {
     slug:   'gulay-patan',
     name:   'Gülay Patan',
     title:  'Stellv. Pflegedienstleiterin',
     mobile: '+49 176 4836 0190',
+    email:  'g.patan@pflegedienst-elblicht.de',
   },
 ];
 
@@ -314,7 +316,7 @@ html, body {
       </div>
       <div class="crow">
         <span class="crow-label">E-Mail</span>
-        <span class="crow-val">info@pflegedienst-elblicht.de</span>
+        <span class="crow-val">${person.email}</span>
       </div>
       <div class="crow">
         <span class="crow-label">Adresse</span>
