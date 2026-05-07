@@ -54,10 +54,10 @@ export function Navbar() {
           aria-label="ElbLicht Pflegedienst"
         >
           <Image
-            src="/elb-licht-logo.svg"
+            src="/images/elb-licht-trans.png"
             alt="ElbLicht Pflegedienst Logo"
-            width={220}
-            height={72}
+            width={200}
+            height={56}
             priority
             className="h-10 w-auto md:h-11"
           />

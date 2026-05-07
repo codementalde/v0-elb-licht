@@ -30,10 +30,10 @@ export function Footer() {
           <div>
             <Link href="/" className="inline-flex items-center gap-2" aria-label="ElbLicht Pflegedienst">
               <Image
-                src="/elb-licht-logo.svg"
+                src="/images/elb-licht-trans.png"
                 alt="ElbLicht Pflegedienst Logo"
-                width={220}
-                height={72}
+                width={200}
+                height={56}
                 className="h-12 w-auto"
               />
             </Link>

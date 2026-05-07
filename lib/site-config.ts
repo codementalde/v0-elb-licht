@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "ElbLicht Pflegedienst",
-  tagline: "Wir sind da. Für Sie. Mit Herz.",
+  tagline: "Ihr Licht in der häuslichen Pflege.",
   description:
     "Ambulanter Pflegedienst in Hamburg – mit Herz, Kompetenz und Menschlichkeit an Ihrer Seite.",
   phoneDisplay: "040 / 560 69 787",
