@@ -88,6 +88,13 @@ export function ContactForm() {
   }
 
   const v = state.values ?? {}
+  const fe = state.fieldErrors
+  const fieldErrorMessages: Record<string, string> = {
+    name: "Bitte geben Sie Ihren Namen ein.",
+    email: "Bitte geben Sie eine gültige E-Mail-Adresse ein (z.B. name@beispiel.de).",
+    message: "Bitte schreiben Sie eine Nachricht (mindestens 5 Zeichen).",
+    consent: "Bitte stimmen Sie der Datenschutzerklärung zu.",
+  }
 
   return (
     <form
@@ -104,14 +111,20 @@ export function ContactForm() {
             {state.message}
           </div>
         )}
+        {!state.message && fe && Object.keys(fe).length > 0 && (
+          <div
+            role="alert"
+            className="rounded-2xl border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-800"
+          >
+            Bitte überprüfen Sie die rot markierten Felder.
+          </div>
+        )}
 
         <div className="grid items-start gap-5 md:grid-cols-2">
           <Field data-invalid={state.fieldErrors?.name ? true : undefined}>
             <FieldLabel htmlFor="name">{t.contact.fields.name}</FieldLabel>
             <Input id="name" name="name" autoComplete="name" required defaultValue={v.name ?? ""} />
-            {state.fieldErrors?.name && (
-              <FieldError>{t.contact.fields.name}</FieldError>
-            )}
+            {fe?.name && <FieldError>{fieldErrorMessages.name}</FieldError>}
           </Field>
 
           <Field data-invalid={state.fieldErrors?.email ? true : undefined}>
@@ -124,9 +137,7 @@ export function ContactForm() {
               required
               defaultValue={v.email ?? ""}
             />
-            {state.fieldErrors?.email && (
-              <FieldError>{t.contact.fields.email}</FieldError>
-            )}
+            {fe?.email && <FieldError>{fieldErrorMessages.email}</FieldError>}
           </Field>
 
           <Field>
@@ -160,15 +171,13 @@ export function ContactForm() {
             required
             defaultValue={v.message ?? ""}
           />
-          {state.fieldErrors?.message && (
-            <FieldError>{t.contact.fields.message}</FieldError>
-          )}
+          {fe?.message && <FieldError>{fieldErrorMessages.message}</FieldError>}
         </Field>
 
         <div className="flex flex-wrap items-center justify-between gap-4">
           <Field
             orientation="horizontal"
-            data-invalid={state.fieldErrors?.consent ? true : undefined}
+            data-invalid={fe?.consent ? true : undefined}
             className="flex-1"
           >
             <Checkbox id="consent" name="consent" defaultChecked={v.consent === "on"} />
@@ -178,6 +187,9 @@ export function ContactForm() {
           </Field>
           <SubmitButton />
         </div>
+        {fe?.consent && (
+          <p className="text-sm text-red-700">{fieldErrorMessages.consent}</p>
+        )}
       </FieldGroup>
     </form>
   )
