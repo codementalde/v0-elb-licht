@@ -1,5 +1,7 @@
 "use server"
 
+import nodemailer from "nodemailer"
+
 export type FormState = {
   ok: boolean
   message?: string
@@ -9,11 +11,21 @@ export type FormState = {
 const isEmail = (s: string) =>
   /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s.trim())
 
-/**
- * Generic contact form submission.
- * NOTE: Hook up an email provider (e.g. Resend) here when an
- * integration is connected. For now we validate, log, and return success.
- */
+function createTransporter() {
+  return nodemailer.createTransport({
+    host: "smtp.strato.de",
+    port: 465,
+    secure: true,
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+  })
+}
+
+const TO = "info@pflegedienst-elblicht.de"
+const FROM = `"ElbLicht Website" <${process.env.SMTP_USER}>`
+
 export async function submitContact(
   _prev: FormState,
   formData: FormData,
@@ -30,23 +42,38 @@ export async function submitContact(
     return { ok: false, fieldErrors: errors }
   }
 
-  // eslint-disable-next-line no-console
-  console.log("[v0] contact submission:", {
-    name: data.name,
-    email: data.email,
-    phone: data.phone,
-    subject: data.subject,
-    message: data.message,
-  })
+  try {
+    const transporter = createTransporter()
+    await transporter.sendMail({
+      from: FROM,
+      to: TO,
+      replyTo: `"${data.name}" <${data.email}>`,
+      subject: `Kontaktanfrage: ${data.subject || "Allgemeine Anfrage"}`,
+      text: [
+        `Name: ${data.name}`,
+        `E-Mail: ${data.email}`,
+        `Telefon: ${data.phone || "–"}`,
+        `Betreff: ${data.subject || "–"}`,
+        "",
+        data.message,
+      ].join("\n"),
+      html: `
+        <p><strong>Name:</strong> ${data.name}</p>
+        <p><strong>E-Mail:</strong> ${data.email}</p>
+        <p><strong>Telefon:</strong> ${data.phone || "–"}</p>
+        <p><strong>Betreff:</strong> ${data.subject || "–"}</p>
+        <hr/>
+        <p>${data.message.replace(/\n/g, "<br/>")}</p>
+      `,
+    })
+  } catch (err) {
+    console.error("[contact] sendMail error:", err)
+    return { ok: false, message: "Fehler beim Senden. Bitte rufen Sie uns an." }
+  }
 
-  // Simulate small async latency
-  await new Promise((r) => setTimeout(r, 600))
   return { ok: true }
 }
 
-/**
- * Consultation request — richer form.
- */
 export async function submitConsultation(
   _prev: FormState,
   formData: FormData,
@@ -63,24 +90,46 @@ export async function submitConsultation(
     return { ok: false, fieldErrors: errors }
   }
 
-  // Multi-select checkboxes come back as repeated keys, but FormData.entries()
-  // collapses them — use getAll for the "needs" group.
   const needs = formData.getAll("needs").map(String)
 
-  // eslint-disable-next-line no-console
-  console.log("[v0] consultation submission:", {
-    name: data.name,
-    relation: data.relation,
-    phone: data.phone,
-    email: data.email,
-    careLevel: data.careLevel,
-    preferredContact: data.preferredContact,
-    preferredTime: data.preferredTime,
-    language: data.language,
-    needs,
-    message: data.message,
-  })
+  try {
+    const transporter = createTransporter()
+    await transporter.sendMail({
+      from: FROM,
+      to: TO,
+      replyTo: data.email ? `"${data.name}" <${data.email}>` : undefined,
+      subject: `Beratungsanfrage: ${data.name}`,
+      text: [
+        `Name: ${data.name}`,
+        `Angehöriger: ${data.relation || "–"}`,
+        `Telefon: ${data.phone}`,
+        `E-Mail: ${data.email || "–"}`,
+        `Pflegegrad: ${data.careLevel || "–"}`,
+        `Kontaktweg: ${data.preferredContact || "–"}`,
+        `Uhrzeit: ${data.preferredTime || "–"}`,
+        `Sprache: ${data.language || "–"}`,
+        `Bedarf: ${needs.join(", ") || "–"}`,
+        "",
+        data.message || "",
+      ].join("\n"),
+      html: `
+        <p><strong>Name:</strong> ${data.name}</p>
+        <p><strong>Angehöriger:</strong> ${data.relation || "–"}</p>
+        <p><strong>Telefon:</strong> ${data.phone}</p>
+        <p><strong>E-Mail:</strong> ${data.email || "–"}</p>
+        <p><strong>Pflegegrad:</strong> ${data.careLevel || "–"}</p>
+        <p><strong>Kontaktweg:</strong> ${data.preferredContact || "–"}</p>
+        <p><strong>Uhrzeit:</strong> ${data.preferredTime || "–"}</p>
+        <p><strong>Sprache:</strong> ${data.language || "–"}</p>
+        <p><strong>Bedarf:</strong> ${needs.join(", ") || "–"}</p>
+        ${data.message ? `<hr/><p>${data.message.replace(/\n/g, "<br/>")}</p>` : ""}
+      `,
+    })
+  } catch (err) {
+    console.error("[consultation] sendMail error:", err)
+    return { ok: false, message: "Fehler beim Senden. Bitte rufen Sie uns an." }
+  }
 
-  await new Promise((r) => setTimeout(r, 700))
   return { ok: true }
 }
+
