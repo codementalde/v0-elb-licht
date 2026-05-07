@@ -79,6 +79,10 @@ export function Footer() {
                 <Phone className="size-4 shrink-0 text-[color:var(--sky)]" aria-hidden />
                 {siteConfig.phoneDisplay}
               </a>
+              <a href={siteConfig.mobileHref} className="flex items-center gap-3 hover:text-navy">
+                <Phone className="size-4 shrink-0 text-[color:var(--sky)]" aria-hidden />
+                {siteConfig.mobileDisplay}{" "}<span className="text-xs text-muted-foreground">24/7</span>
+              </a>
               <span className="flex items-center gap-3">
                 <Printer className="size-4 shrink-0 text-[color:var(--sky)]" aria-hidden />
                 {siteConfig.faxDisplay}

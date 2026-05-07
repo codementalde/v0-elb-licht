@@ -326,6 +326,17 @@ const de: Dict = {
           "Vermittlung zu Ärzten & Ämtern",
         ],
       },
+      {
+        title: "Palliativpflege",
+        badge: "Spezialpflege",
+        text: "Wir begleiten schwerstkranke Menschen und ihre Familien – würdevoll, einfühlsam und fachlich kompetent.",
+        bullets: [
+          "Schmerzmanagement & Symptomkontrolle",
+          "Würdevolle Sterbebegleitung",
+          "Unterstützung der Angehörigen",
+          "Enge Zusammenarbeit mit Ärzten",
+        ],
+      },
     ],
     processEyebrow: "So starten wir gemeinsam",
     processTitle: "In vier einfachen Schritten zur passenden Versorgung.",
@@ -423,6 +434,7 @@ const de: Dict = {
       "Rückruf innerhalb eines Werktages",
       "Beratung auf Deutsch, Türkisch oder Englisch",
       "Hilfe bei Anträgen und Formularen",
+      "Angehörigenberatung und -schulungen",
     ],
     fields: {
       name: "Name",
@@ -758,6 +770,17 @@ const en: Dict = {
           "Help with doctors & authorities",
         ],
       },
+      {
+        title: "Palliative care",
+        badge: "Specialist care",
+        text: "We accompany seriously ill people and their families — with dignity, empathy and clinical expertise.",
+        bullets: [
+          "Pain management & symptom control",
+          "Dignified end-of-life companionship",
+          "Support for family members",
+          "Close collaboration with physicians",
+        ],
+      },
     ],
     processEyebrow: "How we get started",
     processTitle: "Four simple steps to the right care.",
@@ -853,6 +876,7 @@ const en: Dict = {
       "Call-back within one business day",
       "Advice in German, Turkish or English",
       "Help with applications and forms",
+      "Family counselling and training",
     ],
     fields: {
       name: "Name",
@@ -1187,6 +1211,17 @@ const tr: Dict = {
           "Doktor ve daireye aracılık",
         ],
       },
+      {
+        title: "Palyatif bakım",
+        badge: "Uzman bakım",
+        text: "Ağır hastalara ve ailelerine onurlu, empatik ve uzman bir şekilde eşlik ediyoruz.",
+        bullets: [
+          "Ağrı yönetimi & semptom kontrolü",
+          "Onurlu son dönem bakımı",
+          "Aile üyelerine destek",
+          "Doktorlarla yakın işbirliği",
+        ],
+      },
     ],
     processEyebrow: "Nasıl başlarız",
     processTitle: "Dört basit adımda doğru bakıma.",
@@ -1281,6 +1316,7 @@ const tr: Dict = {
       "Bir iş günü içinde geri arama",
       "Almanca, Türkçe veya İngilizce danışmanlık",
       "Başvuru ve formlarda yardım",
+      "Aile danışmanlığı ve eğitimi",
     ],
     fields: {
       name: "Ad",

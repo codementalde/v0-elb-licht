@@ -8,6 +8,7 @@ import {
   FileText,
   Users,
   Languages,
+  Heart,
   Check,
   ArrowRight,
   Phone,
@@ -19,7 +20,7 @@ import { Reveal } from "@/components/site/reveal"
 import { useI18n } from "@/components/site/i18n-provider"
 import { siteConfig } from "@/lib/site-config"
 
-const icons = [HeartHandshake, Stethoscope, HomeIcon, FileText, Users, Languages] as const
+const icons = [HeartHandshake, Stethoscope, HomeIcon, FileText, Users, Languages, Heart] as const
 
 export default function LeistungenPage() {
   const { t } = useI18n()

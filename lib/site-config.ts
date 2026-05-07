@@ -5,6 +5,8 @@ export const siteConfig = {
     "Ambulanter Pflegedienst in Hamburg – mit Herz, Kompetenz und Menschlichkeit an Ihrer Seite.",
   phoneDisplay: "040 / 560 69 787",
   phoneHref: "tel:+494056069787",
+  mobileDisplay: "0171 / 1500 882",
+  mobileHref: "tel:+491711500882",
   faxDisplay: "040 / 572 61 524",
   email: "info@pflegedienst-elblicht.de",
   emailHref: "mailto:info@pflegedienst-elblicht.de",
