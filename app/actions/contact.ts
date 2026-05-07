@@ -6,6 +6,7 @@ export type FormState = {
   ok: boolean
   message?: string
   fieldErrors?: Record<string, string>
+  values?: Record<string, string>
 }
 
 const isEmail = (s: string) =>
@@ -39,7 +40,16 @@ export async function submitContact(
   if (data.consent !== "on") errors.consent = "required"
 
   if (Object.keys(errors).length > 0) {
-    return { ok: false, fieldErrors: errors }
+    return { ok: false, fieldErrors: errors, values: data }
+  }
+
+  if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+    console.error("[contact] SMTP_USER / SMTP_PASS missing in env")
+    return {
+      ok: false,
+      message: "E-Mail-Konfiguration fehlt. Bitte rufen Sie uns an: 040 560 69 787",
+      values: data,
+    }
   }
 
   try {
@@ -68,7 +78,12 @@ export async function submitContact(
     })
   } catch (err) {
     console.error("[contact] sendMail error:", err)
-    return { ok: false, message: "Fehler beim Senden. Bitte rufen Sie uns an." }
+    const detail = err instanceof Error ? err.message : String(err)
+    return {
+      ok: false,
+      message: `Fehler beim Senden: ${detail}. Bitte rufen Sie uns an: 040 560 69 787`,
+      values: data,
+    }
   }
 
   return { ok: true }

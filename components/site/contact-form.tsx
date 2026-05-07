@@ -87,6 +87,8 @@ export function ContactForm() {
     )
   }
 
+  const v = state.values ?? {}
+
   return (
     <form
       action={formAction}
@@ -94,10 +96,19 @@ export function ContactForm() {
       noValidate
     >
       <FieldGroup className="flex flex-1 flex-col">
+        {state.message && (
+          <div
+            role="alert"
+            className="rounded-2xl border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-800"
+          >
+            {state.message}
+          </div>
+        )}
+
         <div className="grid items-start gap-5 md:grid-cols-2">
           <Field data-invalid={state.fieldErrors?.name ? true : undefined}>
             <FieldLabel htmlFor="name">{t.contact.fields.name}</FieldLabel>
-            <Input id="name" name="name" autoComplete="name" required />
+            <Input id="name" name="name" autoComplete="name" required defaultValue={v.name ?? ""} />
             {state.fieldErrors?.name && (
               <FieldError>{t.contact.fields.name}</FieldError>
             )}
@@ -111,6 +122,7 @@ export function ContactForm() {
               type="email"
               autoComplete="email"
               required
+              defaultValue={v.email ?? ""}
             />
             {state.fieldErrors?.email && (
               <FieldError>{t.contact.fields.email}</FieldError>
@@ -119,12 +131,12 @@ export function ContactForm() {
 
           <Field>
             <FieldLabel htmlFor="phone">{t.contact.fields.phone}</FieldLabel>
-            <Input id="phone" name="phone" type="tel" autoComplete="tel" />
+            <Input id="phone" name="phone" type="tel" autoComplete="tel" defaultValue={v.phone ?? ""} />
           </Field>
 
           <Field>
             <FieldLabel htmlFor="subject">{t.contact.fields.subject}</FieldLabel>
-            <Select name="subject" defaultValue={t.contact.subjects[0]}>
+            <Select name="subject" defaultValue={v.subject ?? t.contact.subjects[0]}>
               <SelectTrigger id="subject">
                 <SelectValue />
               </SelectTrigger>
@@ -141,7 +153,13 @@ export function ContactForm() {
 
         <Field data-invalid={state.fieldErrors?.message ? true : undefined} className="flex flex-1 flex-col">
           <FieldLabel htmlFor="message">{t.contact.fields.message}</FieldLabel>
-          <Textarea id="message" name="message" className="min-h-[160px] flex-1 resize-none" required />
+          <Textarea
+            id="message"
+            name="message"
+            className="min-h-[160px] flex-1 resize-none"
+            required
+            defaultValue={v.message ?? ""}
+          />
           {state.fieldErrors?.message && (
             <FieldError>{t.contact.fields.message}</FieldError>
           )}
@@ -153,7 +171,7 @@ export function ContactForm() {
             data-invalid={state.fieldErrors?.consent ? true : undefined}
             className="flex-1"
           >
-            <Checkbox id="consent" name="consent" />
+            <Checkbox id="consent" name="consent" defaultChecked={v.consent === "on"} />
             <Label htmlFor="consent" className="text-sm leading-relaxed text-foreground/80">
               <ConsentText template={t.contact.fields.consent} />
             </Label>
