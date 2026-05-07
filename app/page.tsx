@@ -102,6 +102,22 @@ export default function HomePage() {
               </Button>
             </div>
 
+            {/* 24/7 Emergency strip */}
+            <a
+              href={siteConfig.mobileHref}
+              className="mt-5 inline-flex w-full items-center gap-3 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 transition-colors hover:bg-emerald-100 sm:w-auto"
+            >
+              <span className="relative flex size-2.5 shrink-0">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex size-2.5 rounded-full bg-emerald-500" />
+              </span>
+              <span className="flex flex-col leading-tight sm:flex-row sm:items-center sm:gap-1.5">
+                <span className="text-xs font-semibold uppercase tracking-wide text-emerald-700">Notfall & 24/7 erreichbar</span>
+                <span className="hidden text-emerald-400 sm:inline">·</span>
+                <span className="text-sm font-bold text-emerald-800">{siteConfig.mobileDisplay}</span>
+              </span>
+            </a>
+
             <dl className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3">
               {[
                 { icon: MapPin, label: t.home.statArea, value: "Hamburg & Umgebung" },

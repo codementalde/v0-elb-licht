@@ -145,10 +145,26 @@ html, body {
 </html>`;
 }
 
+// ── Kart sahipleri ────────────────────────────────────────────────────────────
+const PEOPLE = [
+  {
+    slug:   'ebru-medik',
+    name:   'Ebru Medik',
+    title:  'Pflegedienstleiterin',
+    mobile: '+49 174 9483 704',
+  },
+  {
+    slug:   'gulay-patan',
+    name:   'Gülay Patan',
+    title:  'Stellv. Pflegedienstleiterin',
+    mobile: '+49 176 4836 0190',
+  },
+];
+
 // ── Arka yüz HTML (91 × 61 mm — bleed dahil) ──────────────────────────────────
 // Sol mavi şerit: x=0 → x=3.75mm (3 mm bleed + 0.75 mm görünür), tam yükseklik
 // İçerik: x ≥ 6.5 mm, y: 6 mm…55 mm  (6 mm = 3 bleed + 3 safe her yanda)
-function backHTML(logoUrl) {
+function backHTML(logoUrl, person) {
   return /* html */`<!DOCTYPE html>
 <html>
 <head>
@@ -234,7 +250,7 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1.8mm;
+  gap: 1.5mm;
 }
 
 .crow {
@@ -277,10 +293,10 @@ html, body {
   <div class="content">
     <div class="head">
       <div class="name-block">
-        <div class="person-name">Akif Patan</div>
+        <div class="person-name">${person.name}</div>
         <div class="title-row">
           <div class="title-dash"></div>
-          <div class="person-title">Pflegedienstleiter</div>
+          <div class="person-title">${person.title}</div>
         </div>
       </div>
       <div class="head-logo">
@@ -291,6 +307,10 @@ html, body {
       <div class="crow">
         <span class="crow-label">Tel</span>
         <span class="crow-val">040 / 423 26 735</span>
+      </div>
+      <div class="crow">
+        <span class="crow-label">Mobil</span>
+        <span class="crow-val">${person.mobile}</span>
       </div>
       <div class="crow">
         <span class="crow-label">E-Mail</span>
@@ -319,15 +339,9 @@ async function generate() {
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
 
-  const sides = [
-    { html: frontHTML(logoUrl), file: 'kartvizit-on-yuz.pdf',   label: 'Ön yüz' },
-    { html: backHTML(logoUrl),  file: 'kartvizit-arka-yuz.pdf', label: 'Arka yüz' },
-  ];
-
-  for (const { html, file, label } of sides) {
+  async function pdfFromHTML(html, file) {
     const page = await browser.newPage();
     await page.setContent(html, { waitUntil: 'networkidle0' });
-
     await page.pdf({
       path: path.join(__dirname, file),
       width:  '91mm',   // 85 mm trim + 3 mm bleed her iki yanda
@@ -335,14 +349,25 @@ async function generate() {
       printBackground: true,
       margin: { top: 0, right: 0, bottom: 0, left: 0 },
     });
-
     await page.close();
-    console.log(`✓  ${label}: ${file}  (91×61 mm, 3 mm bleed)`);
+  }
+
+  // Her kişi için ön + arka — toplam 4 PDF
+  for (const person of PEOPLE) {
+    const front = `kartvizit-${person.slug}-on-yuz.pdf`;
+    const back  = `kartvizit-${person.slug}-arka-yuz.pdf`;
+
+    await pdfFromHTML(frontHTML(logoUrl),         front);
+    await pdfFromHTML(backHTML(logoUrl, person),  back);
+
+    console.log(`✓  ${person.name.padEnd(14)}  →  ${front}`);
+    console.log(`                  →  ${back}`);
   }
 
   await browser.close();
   server.close();
-  console.log('\nTrim boyutu: 85×55 mm  |  Güvenli alan: 6 mm sayfa kenarından');
+  console.log('\nFormat: 91×61 mm (85×55 mm trim + 3 mm Beschnitt rundum)');
+  console.log('Güvenli alan: sayfa kenarından 6 mm');
   console.log('PDF\'ler hazır:', __dirname);
 }
 

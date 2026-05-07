@@ -30,7 +30,7 @@ export function TopBanner() {
         >
           <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2 text-xs md:px-6 md:text-[0.82rem]">
             {/* Left — phone + mobile + email */}
-            <div className="flex items-center gap-x-5">
+            <div className="flex items-center gap-x-4">
               <a
                 href={siteConfig.phoneHref}
                 className="inline-flex items-center gap-1.5 transition-opacity hover:opacity-80"
@@ -40,7 +40,7 @@ export function TopBanner() {
               </a>
               <a
                 href={siteConfig.mobileHref}
-                className="hidden sm:inline-flex items-center gap-1.5 transition-opacity hover:opacity-80"
+                className="inline-flex items-center gap-1.5 transition-opacity hover:opacity-80"
               >
                 <span className="relative flex size-2 shrink-0">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-300 opacity-75" />
