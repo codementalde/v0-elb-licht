@@ -96,6 +96,15 @@ export function ConsultationForm() {
     )
   }
 
+  const v = state.values ?? {}
+  const fe = state.fieldErrors
+  const fieldErrorMessages: Record<string, string> = {
+    name: "Bitte geben Sie Ihren Namen ein.",
+    phone: "Bitte geben Sie eine gültige Telefonnummer ein.",
+    email: "Bitte geben Sie eine gültige E-Mail-Adresse ein (z.B. name@beispiel.de).",
+    consent: "Bitte stimmen Sie der Datenschutzerklärung zu.",
+  }
+
   return (
     <form
       action={formAction}
@@ -103,18 +112,33 @@ export function ConsultationForm() {
       noValidate
     >
       <FieldGroup>
+        {state.message && (
+          <div
+            role="alert"
+            className="rounded-2xl border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-800"
+          >
+            {state.message}
+          </div>
+        )}
+        {!state.message && fe && Object.keys(fe).length > 0 && (
+          <div
+            role="alert"
+            className="rounded-2xl border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-800"
+          >
+            Bitte überprüfen Sie die rot markierten Felder.
+          </div>
+        )}
+
         <div className="grid gap-5 md:grid-cols-2">
-          <Field data-invalid={state.fieldErrors?.name ? true : undefined}>
+          <Field data-invalid={fe?.name ? true : undefined}>
             <FieldLabel htmlFor="name">{t.consultation.fields.name}</FieldLabel>
-            <Input id="name" name="name" autoComplete="name" required />
-            {state.fieldErrors?.name && (
-              <FieldError>{t.consultation.fields.name}</FieldError>
-            )}
+            <Input id="name" name="name" autoComplete="name" required defaultValue={v.name ?? ""} />
+            {fe?.name && <FieldError>{fieldErrorMessages.name}</FieldError>}
           </Field>
 
           <Field>
             <FieldLabel htmlFor="relation">{t.consultation.fields.relation}</FieldLabel>
-            <Select name="relation" defaultValue={t.consultation.relations[0]}>
+            <Select name="relation" defaultValue={v.relation ?? t.consultation.relations[0]}>
               <SelectTrigger id="relation">
                 <SelectValue />
               </SelectTrigger>
@@ -128,20 +152,16 @@ export function ConsultationForm() {
             </Select>
           </Field>
 
-          <Field data-invalid={state.fieldErrors?.phone ? true : undefined}>
+          <Field data-invalid={fe?.phone ? true : undefined}>
             <FieldLabel htmlFor="phone">{t.consultation.fields.phone}</FieldLabel>
-            <Input id="phone" name="phone" type="tel" autoComplete="tel" required />
-            {state.fieldErrors?.phone && (
-              <FieldError>{t.consultation.fields.phone}</FieldError>
-            )}
+            <Input id="phone" name="phone" type="tel" autoComplete="tel" required defaultValue={v.phone ?? ""} />
+            {fe?.phone && <FieldError>{fieldErrorMessages.phone}</FieldError>}
           </Field>
 
-          <Field data-invalid={state.fieldErrors?.email ? true : undefined}>
+          <Field data-invalid={fe?.email ? true : undefined}>
             <FieldLabel htmlFor="email">{t.consultation.fields.email}</FieldLabel>
-            <Input id="email" name="email" type="email" autoComplete="email" />
-            {state.fieldErrors?.email && (
-              <FieldError>{t.consultation.fields.email}</FieldError>
-            )}
+            <Input id="email" name="email" type="email" autoComplete="email" defaultValue={v.email ?? ""} />
+            {fe?.email && <FieldError>{fieldErrorMessages.email}</FieldError>}
           </Field>
 
           <Field>
@@ -262,18 +282,21 @@ export function ConsultationForm() {
 
         <Field>
           <FieldLabel htmlFor="message">{t.consultation.fields.message}</FieldLabel>
-          <Textarea id="message" name="message" rows={5} />
+          <Textarea id="message" name="message" rows={5} defaultValue={v.message ?? ""} />
         </Field>
 
         <Field
           orientation="horizontal"
-          data-invalid={state.fieldErrors?.consent ? true : undefined}
+          data-invalid={fe?.consent ? true : undefined}
         >
-          <Checkbox id="consent" name="consent" />
+          <Checkbox id="consent" name="consent" defaultChecked={v.consent === "on"} />
           <Label htmlFor="consent" className="text-sm leading-relaxed text-foreground/80">
             <ConsentText template={t.consultation.fields.consent} />
           </Label>
         </Field>
+        {fe?.consent && (
+          <p className="text-sm text-red-700">{fieldErrorMessages.consent}</p>
+        )}
 
         <div className="flex justify-end">
           <SubmitButton />
