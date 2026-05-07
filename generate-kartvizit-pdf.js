@@ -290,7 +290,7 @@ html, body {
     <div class="contacts">
       <div class="crow">
         <span class="crow-label">Tel</span>
-        <span class="crow-val">040 / 560 69 787</span>
+        <span class="crow-val">040 / 423 26 735</span>
       </div>
       <div class="crow">
         <span class="crow-label">E-Mail</span>

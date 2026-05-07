@@ -21,7 +21,7 @@ export const blogPosts: BlogPost[] = [
     title: "Türkischer Pflegedienst Hamburg – kultursensible Pflege auf Türkisch",
     metaTitle: "Türkischer Pflegedienst Hamburg | ElbLicht – Pflege auf Türkisch",
     metaDescription:
-      "Suchen Sie einen türkischsprachigen Pflegedienst in Hamburg? ElbLicht bietet häusliche Pflege auf Deutsch & Türkisch – St. Pauli, Altona, Eimsbüttel. ☎ 040 560 69 787",
+      "Suchen Sie einen türkischsprachigen Pflegedienst in Hamburg? ElbLicht bietet häusliche Pflege auf Deutsch & Türkisch – St. Pauli, Altona, Eimsbüttel. ☎ 040 423 26 735",
     publishedAt: "2026-05-07",
     updatedAt: "2026-05-07",
     author: "Ebru Medik",
@@ -70,14 +70,14 @@ export const blogPosts: BlogPost[] = [
 
 <h2>Wie Sie uns erreichen</h2>
 
-<p>Sie möchten mehr über unsere türkischsprachige Pflege erfahren oder einen Beratungstermin vereinbaren? Rufen Sie uns an – auf Deutsch oder Türkisch: <strong>☎ 040 560 69 787</strong>, Mo–Fr 08:00–18:00 Uhr. Alternativ schreiben Sie uns: <a href="mailto:info@pflegedienst-elblicht.de">info@pflegedienst-elblicht.de</a>.</p>
+<p>Sie möchten mehr über unsere türkischsprachige Pflege erfahren oder einen Beratungstermin vereinbaren? Rufen Sie uns an – auf Deutsch oder Türkisch: <strong>☎ 040 423 26 735</strong>, Mo–Fr 08:00–18:00 Uhr. Alternativ schreiben Sie uns: <a href="mailto:info@pflegedienst-elblicht.de">info@pflegedienst-elblicht.de</a>.</p>
 
 <p>Die erste Beratung ist <strong>kostenlos und unverbindlich</strong>. Wir kommen auch gerne zu Ihnen nach Hause.</p>
     `.trim(),
     faqs: [
       {
         q: "Gibt es in Hamburg einen Pflegedienst, der Türkisch spricht?",
-        a: "Ja. ElbLicht Pflegedienst in Hamburg-St. Pauli bietet häusliche Pflege auf Deutsch und Türkisch an. Unser Team betreut pflegebedürftige Menschen in St. Pauli, Altona und Eimsbüttel. ☎ 040 560 69 787.",
+        a: "Ja. ElbLicht Pflegedienst in Hamburg-St. Pauli bietet häusliche Pflege auf Deutsch und Türkisch an. Unser Team betreut pflegebedürftige Menschen in St. Pauli, Altona und Eimsbüttel. ☎ 040 423 26 735.",
       },
       {
         q: "Was bedeutet kultursensible Pflege?",
@@ -89,7 +89,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         q: "Ist die erste Pflegeberatung bei ElbLicht kostenlos?",
-        a: "Ja. Die Erstberatung bei ElbLicht Pflegedienst ist kostenlos und unverbindlich. Rufen Sie uns an (040 560 69 787) oder füllen Sie das Kontaktformular auf unserer Website aus.",
+        a: "Ja. Die Erstberatung bei ElbLicht Pflegedienst ist kostenlos und unverbindlich. Rufen Sie uns an (040 423 26 735) oder füllen Sie das Kontaktformular auf unserer Website aus.",
       },
       {
         q: "In welchen Hamburger Stadtteilen ist ElbLicht aktiv?",
@@ -102,7 +102,7 @@ export const blogPosts: BlogPost[] = [
     title: "Pflegegrad beantragen in Hamburg: Schritt-für-Schritt-Anleitung 2026",
     metaTitle: "Pflegegrad beantragen Hamburg 2026 | Schritt für Schritt – ElbLicht",
     metaDescription:
-      "Pflegegrad beantragen in Hamburg: So funktioniert der Antrag bei der Pflegekasse, was beim MDK-Gutachten wichtig ist & welche Leistungen Sie erhalten. Kostenlose Beratung ☎ 040 560 69 787",
+      "Pflegegrad beantragen in Hamburg: So funktioniert der Antrag bei der Pflegekasse, was beim MDK-Gutachten wichtig ist & welche Leistungen Sie erhalten. Kostenlose Beratung ☎ 040 423 26 735",
     publishedAt: "2026-05-07",
     updatedAt: "2026-05-07",
     author: "Gülay Patan",
@@ -172,7 +172,7 @@ export const blogPosts: BlogPost[] = [
     faqs: [
       {
         q: "Wie beantrage ich einen Pflegegrad in Hamburg?",
-        a: "Stellen Sie einen schriftlichen Antrag bei Ihrer Pflegekasse (Abteilung der Krankenkasse). Schreiben Sie: 'Ich beantrage die Feststellung der Pflegebedürftigkeit.' Der MDK kommt dann zur Begutachtung nach Hause. ElbLicht Pflegedienst unterstützt Sie kostenlos dabei: ☎ 040 560 69 787.",
+        a: "Stellen Sie einen schriftlichen Antrag bei Ihrer Pflegekasse (Abteilung der Krankenkasse). Schreiben Sie: 'Ich beantrage die Feststellung der Pflegebedürftigkeit.' Der MDK kommt dann zur Begutachtung nach Hause. ElbLicht Pflegedienst unterstützt Sie kostenlos dabei: ☎ 040 423 26 735.",
       },
       {
         q: "Wie lange dauert es, bis der Pflegegrad bewilligt wird?",
@@ -188,7 +188,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         q: "Kann ElbLicht beim Pflegegrad-Antrag helfen?",
-        a: "Ja. ElbLicht Pflegedienst Hamburg bietet kostenlose Pflegeberatung an – auch beim Pflegegrad-Antrag, MDK-Vorbereitung und Widerspruch. Wir sprechen Deutsch, Türkisch und Englisch. ☎ 040 560 69 787.",
+        a: "Ja. ElbLicht Pflegedienst Hamburg bietet kostenlose Pflegeberatung an – auch beim Pflegegrad-Antrag, MDK-Vorbereitung und Widerspruch. Wir sprechen Deutsch, Türkisch und Englisch. ☎ 040 423 26 735.",
       },
     ],
     howToSteps: [

@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL("https://pflegedienst-elblicht.de"),
   description:
-    "Professionelle ambulante Pflege in Hamburg. Türkisch- & deutschsprachig. Grundpflege, Behandlungspflege & kostenlose Pflegeberatung. ☎ 040 560 69 787",
+    "Professionelle ambulante Pflege in Hamburg. Türkisch- & deutschsprachig. Grundpflege, Behandlungspflege & kostenlose Pflegeberatung. ☎ 040 423 26 735",
   keywords: [
     "Pflegedienst Hamburg",
     "ambulanter Pflegedienst Hamburg",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Pflegedienst Hamburg – ElbLicht | Häusliche Pflege St. Pauli",
     description:
-      "Ambulante Pflege in Hamburg. Türkisch- & deutschsprachig. Kostenlose Erstberatung ☎ 040 560 69 787",
+      "Ambulante Pflege in Hamburg. Türkisch- & deutschsprachig. Kostenlose Erstberatung ☎ 040 423 26 735",
     url: "https://pflegedienst-elblicht.de",
     siteName: "ElbLicht Pflegedienst",
     locale: "de_DE",
@@ -76,8 +76,8 @@ const schemaOrg = {
   description:
     "Ambulanter Pflegedienst in Hamburg – Grundpflege, Behandlungspflege, Beratung. Deutsch-, türkisch- und englischsprachig.",
   url: "https://pflegedienst-elblicht.de",
-  telephone: "+494056069787",
-  faxNumber: "+494057261524",
+  telephone: "+494042326735",
+  faxNumber: "+494042326805",
   email: "info@pflegedienst-elblicht.de",
   address: {
     "@type": "PostalAddress",

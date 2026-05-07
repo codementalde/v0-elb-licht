@@ -538,7 +538,7 @@ const de: Dict = {
         {
           title: "Kontakt",
           body: [
-            "Telefon: 040 / 560 69 787",
+            "Telefon: 040 / 423 26 735",
             "E-Mail: info@pflegedienst-elblicht.de",
           ],
         },
@@ -979,7 +979,7 @@ const en: Dict = {
         {
           title: "Contact",
           body: [
-            "Phone: +49 40 560 69 787",
+            "Phone: +49 40 423 26 735",
             "Email: info@pflegedienst-elblicht.de",
           ],
         },
@@ -1419,7 +1419,7 @@ const tr: Dict = {
         {
           title: "İletişim",
           body: [
-            "Telefon: +49 40 560 69 787",
+            "Telefon: +49 40 423 26 735",
             "E-posta: info@pflegedienst-elblicht.de",
           ],
         },
