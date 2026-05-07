@@ -29,7 +29,7 @@ export function TopBanner() {
           className="relative z-[55] overflow-hidden bg-[color:var(--brand)] text-white"
         >
           <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2 text-xs md:px-6 md:text-[0.82rem]">
-            {/* Left — phone + email */}
+            {/* Left — phone + mobile + email */}
             <div className="flex items-center gap-x-5">
               <a
                 href={siteConfig.phoneHref}
@@ -39,8 +39,19 @@ export function TopBanner() {
                 <span className="font-medium">{siteConfig.phoneDisplay}</span>
               </a>
               <a
-                href={siteConfig.emailHref}
+                href={siteConfig.mobileHref}
                 className="hidden sm:inline-flex items-center gap-1.5 transition-opacity hover:opacity-80"
+              >
+                <span className="relative flex size-2 shrink-0">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-300 opacity-75" />
+                  <span className="relative inline-flex size-2 rounded-full bg-emerald-400" />
+                </span>
+                <span className="font-medium">{siteConfig.mobileDisplay}</span>
+                <span className="rounded-full bg-white/20 px-1.5 py-0.5 text-[0.68rem] font-semibold leading-none">24/7</span>
+              </a>
+              <a
+                href={siteConfig.emailHref}
+                className="hidden lg:inline-flex items-center gap-1.5 transition-opacity hover:opacity-80"
               >
                 <Mail className="size-3.5" aria-hidden />
                 {siteConfig.email}

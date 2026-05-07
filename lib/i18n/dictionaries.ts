@@ -381,13 +381,13 @@ const de: Dict = {
     members: [
       {
         name: "Ebru Medik",
-        role: "Spricht: Deutsch · Türkisch",
-        bio: "Als festes Gesicht unseres Teams begleitet Ebru ihre Patientinnen und Patienten aufmerksam, respektvoll und mehrsprachig durch den Pflegealltag.",
+        role: "PDL · Deutsch · Türkisch",
+        bio: "Als Pflegedienstleitung und festes Gesicht unseres Teams begleitet Ebru ihre Patientinnen und Patienten aufmerksam, respektvoll und mehrsprachig durch den Pflegealltag.",
       },
       {
         name: "Gülay Patan",
-        role: "Spricht: Deutsch · Englisch",
-        bio: "Mit Einfühlungsvermögen und fachlicher Kompetenz sorgt Gülay dafür, dass sich unsere Patientinnen und Patienten zuhause gut aufgehoben fühlen.",
+        role: "Stellv. PDL · Deutsch · Englisch",
+        bio: "Als stellvertretende Pflegedienstleitung sorgt Gülay mit Einfühlungsvermögen und fachlicher Kompetenz dafür, dass sich unsere Patientinnen und Patienten zuhause gut aufgehoben fühlen.",
       },
     ],
   },
@@ -825,13 +825,13 @@ const en: Dict = {
     members: [
       {
         name: "Ebru Medik",
-        role: "Speaks: German · Turkish",
-        bio: "A steady face in our team, Ebru accompanies her patients attentively, respectfully and multilingually through their daily care routine.",
+        role: "Head of Nursing · German · Turkish",
+        bio: "As head of nursing and a familiar face in our team, Ebru accompanies her patients attentively, respectfully and multilingually through their daily care routine.",
       },
       {
         name: "Gülay Patan",
-        role: "Speaks: German · English",
-        bio: "With empathy and professional competence, Gülay makes sure our patients feel truly cared for at home.",
+        role: "Deputy Head of Nursing · German · English",
+        bio: "As deputy head of nursing, Gülay makes sure our patients feel truly cared for at home with empathy and professional competence.",
       },
     ],
   },
@@ -1266,13 +1266,13 @@ const tr: Dict = {
     members: [
       {
         name: "Ebru Medik",
-        role: "Konuşur: Almanca · Türkçe",
-        bio: "Ekibimizin tanıdık yüzü Ebru, hastalarına dikkatle, saygıyla ve çok dilli olarak günlük bakım sürecinde eşlik eder.",
+        role: "PDL · Almanca · Türkçe",
+        bio: "Bakım hizmetleri müdürü (PDL) ve ekibimizin tanıdık yüzü Ebru, hastalarına dikkatle, saygıyla ve çok dilli olarak günlük bakım sürecinde eşlik eder.",
       },
       {
         name: "Gülay Patan",
-        role: "Konuşur: Almanca · İngilizce",
-        bio: "Empatisi ve mesleki yetkinliği ile Gülay, hastalarımızın evde kendilerini gerçekten güvende hissetmesini sağlar.",
+        role: "Yrd. PDL · Almanca · İngilizce",
+        bio: "Yardımcı PDL olarak Gülay, empatisi ve mesleki yetkinliği ile hastalarımızın evde kendilerini gerçekten güvende hissetmesini sağlar.",
       },
     ],
   },

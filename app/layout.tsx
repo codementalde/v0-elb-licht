@@ -107,11 +107,13 @@ const schemaOrg = {
     {
       "@type": "Person",
       name: "Ebru Medik",
+      jobTitle: "Pflegedienstleitung",
       knowsLanguage: ["Deutsch", "Türkisch"],
     },
     {
       "@type": "Person",
       name: "Gülay Patan",
+      jobTitle: "Stellvertretende Pflegedienstleitung",
       knowsLanguage: ["Deutsch", "Englisch"],
     },
   ],

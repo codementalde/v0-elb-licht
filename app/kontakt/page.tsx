@@ -33,6 +33,13 @@ export default function KontaktPage() {
       href: siteConfig.phoneHref,
     },
     {
+      icon: Phone,
+      label: "Mobil 24/7",
+      value: siteConfig.mobileDisplay,
+      href: siteConfig.mobileHref,
+      highlight: true,
+    },
+    {
       icon: Printer,
       label: t.common.fax,
       value: siteConfig.faxDisplay,
@@ -80,15 +87,15 @@ export default function KontaktPage() {
                 <ul className="mt-8 grid flex-1 auto-rows-fr gap-3">
                   {items.map((it) => {
                     const inner = (
-                      <div className="flex h-full items-start gap-4 rounded-2xl border border-border bg-card p-4 transition-colors hover:bg-accent/60">
-                        <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-xl bg-accent text-[color:var(--sky)]">
+                      <div className={`flex h-full items-start gap-4 rounded-2xl border p-4 transition-colors ${"highlight" in it && it.highlight ? "border-emerald-200 bg-emerald-50 hover:bg-emerald-100/80 dark:border-emerald-800 dark:bg-emerald-950/40" : "border-border bg-card hover:bg-accent/60"}`}>
+                        <span className={`inline-flex size-10 shrink-0 items-center justify-center rounded-xl ${"highlight" in it && it.highlight ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300" : "bg-accent text-[color:var(--sky)]"}`}>
                           <it.icon className="size-5" aria-hidden />
                         </span>
                         <div className="min-w-0">
                           <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
                             {it.label}
                           </p>
-                          <p className="mt-0.5 text-base font-semibold text-navy">
+                          <p className={`mt-0.5 text-base font-semibold ${"highlight" in it && it.highlight ? "text-emerald-800 dark:text-emerald-300" : "text-navy"}`}>
                             {it.value}
                           </p>
                         </div>

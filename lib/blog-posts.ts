@@ -25,7 +25,7 @@ export const blogPosts: BlogPost[] = [
     publishedAt: "2026-05-07",
     updatedAt: "2026-05-07",
     author: "Ebru Medik",
-    authorRole: "Pflegefachkraft, ElbLicht Pflegedienst Hamburg",
+    authorRole: "Pflegedienstleitung (PDL), ElbLicht Pflegedienst Hamburg",
     readingMinutes: 5,
     excerpt:
       "Rund 70.000 Menschen türkischer Herkunft leben in Hamburg – und viele suchen einen Pflegedienst, der ihre Sprache und Kultur versteht. Wir erklären, warum kultursensible Pflege auf Türkisch so wichtig ist und wie ElbLicht dabei hilft.",
@@ -106,7 +106,7 @@ export const blogPosts: BlogPost[] = [
     publishedAt: "2026-05-07",
     updatedAt: "2026-05-07",
     author: "Gülay Patan",
-    authorRole: "Pflegeberaterin, ElbLicht Pflegedienst Hamburg",
+    authorRole: "Stellv. Pflegedienstleitung, ElbLicht Pflegedienst Hamburg",
     readingMinutes: 6,
     excerpt:
       "Einen Pflegegrad zu beantragen klingt kompliziert – ist es aber nicht, wenn man weiß, wie es geht. Diese Schritt-für-Schritt-Anleitung erklärt, wie Sie in Hamburg schnell und richtig vorgehen.",

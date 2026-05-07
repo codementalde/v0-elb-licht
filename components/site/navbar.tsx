@@ -100,6 +100,17 @@ export function Navbar() {
         <div className="hidden items-center gap-1.5 lg:flex">
           <LanguageSwitcher />
           <span aria-hidden className="mx-1 h-6 w-px bg-border" />
+          <a
+            href={siteConfig.mobileHref}
+            className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium text-foreground/70 transition-colors hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-800"
+          >
+            <span className="relative flex size-1.5 shrink-0">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex size-1.5 rounded-full bg-emerald-500" />
+            </span>
+            {siteConfig.mobileDisplay}
+            <span className="font-semibold text-emerald-700">24/7</span>
+          </a>
           <Button
             asChild
             size="sm"
