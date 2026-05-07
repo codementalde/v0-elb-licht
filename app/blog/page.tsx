@@ -1,6 +1,7 @@
 import Link from "next/link"
-import { ArrowRight, Clock, Tag } from "lucide-react"
+import { ArrowRight, Clock, Tag, Phone } from "lucide-react"
 import { blogPosts } from "@/lib/blog-posts"
+import { siteConfig } from "@/lib/site-config"
 import { Card, CardContent } from "@/components/ui/card"
 
 export default function BlogIndexPage() {
@@ -74,6 +75,35 @@ export default function BlogIndexPage() {
           </Link>
         ))}
       </div>
+
+      {/* Contact CTA */}
+      <aside className="mt-14 rounded-2xl bg-[color:var(--navy)] p-8 text-white">
+        <p className="text-white/70 text-sm font-medium uppercase tracking-wider mb-2">
+          Kostenlose Erstberatung
+        </p>
+        <h2 className="font-serif text-2xl font-semibold mb-3">
+          Haben Sie Fragen zur Pflege? Wir helfen auf Deutsch, Türkisch oder Englisch.
+        </h2>
+        <p className="text-white/80 mb-6 leading-relaxed">
+          Rufen Sie uns an oder nutzen Sie unser Kontaktformular – die erste Beratung ist
+          kostenlos und unverbindlich.
+        </p>
+        <div className="flex flex-wrap gap-3">
+          <a
+            href={siteConfig.phoneHref}
+            className="inline-flex items-center gap-2 rounded-full bg-white text-navy px-5 py-2.5 text-sm font-semibold hover:bg-white/90 transition-colors"
+          >
+            <Phone className="size-4" aria-hidden />
+            {siteConfig.phoneDisplay}
+          </a>
+          <Link
+            href="/kontakt"
+            className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white px-5 py-2.5 text-sm font-semibold hover:bg-white/10 transition-colors"
+          >
+            Kontakt aufnehmen
+          </Link>
+        </div>
+      </aside>
 
       {/* Back to home */}
       <div className="mt-12 text-center">
