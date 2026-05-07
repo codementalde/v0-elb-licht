@@ -86,16 +86,26 @@ export default function KontaktPage() {
 
                 <ul className="mt-8 grid flex-1 auto-rows-fr gap-3">
                   {items.map((it) => {
+                    const isHighlight = "highlight" in it && it.highlight
                     const inner = (
-                      <div className={`flex h-full items-start gap-4 rounded-2xl border p-4 transition-colors ${"highlight" in it && it.highlight ? "border-emerald-200 bg-emerald-50 hover:bg-emerald-100/80 dark:border-emerald-800 dark:bg-emerald-950/40" : "border-border bg-card hover:bg-accent/60"}`}>
-                        <span className={`inline-flex size-10 shrink-0 items-center justify-center rounded-xl ${"highlight" in it && it.highlight ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300" : "bg-accent text-[color:var(--sky)]"}`}>
+                      <div className="flex h-full items-start gap-4 rounded-2xl border border-border bg-card p-4 transition-colors hover:bg-accent/60">
+                        <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-xl bg-accent text-[color:var(--sky)]">
                           <it.icon className="size-5" aria-hidden />
                         </span>
                         <div className="min-w-0">
-                          <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                          <p className="flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
                             {it.label}
+                            {isHighlight && (
+                              <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-1.5 py-0.5 text-[0.65rem] font-semibold leading-none text-emerald-700">
+                                <span className="relative flex size-1.5">
+                                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                                  <span className="relative inline-flex size-1.5 rounded-full bg-emerald-500" />
+                                </span>
+                                24/7
+                              </span>
+                            )}
                           </p>
-                          <p className={`mt-0.5 text-base font-semibold ${"highlight" in it && it.highlight ? "text-emerald-800 dark:text-emerald-300" : "text-navy"}`}>
+                          <p className="mt-0.5 text-base font-semibold text-navy">
                             {it.value}
                           </p>
                         </div>
