@@ -233,6 +233,27 @@
       padding: 9px 14px;
       text-align: center;
     }
+    .cta-qr {
+      flex-shrink: 0;
+      width: 64px;
+      height: 64px;
+      display: block;
+    }
+    .langs-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.85);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      padding: 4px 11px;
+      border-radius: 100px;
+      margin-left: 8px;
+    }
+    .langs-tag span { color: rgba(255,255,255,.45); font-weight: 600; }
     .cta-badge-line1 {
       font-size: 8px;
       font-weight: 600;
@@ -340,6 +361,8 @@
 
       /* Footer: alt 3mm bleed kaplıyor — padding-bottom arttırıldı */
       .footer { padding-bottom: 6mm; }
+
+      .cta-qr { width: 18mm; height: 18mm; }
     }
   </style>
 </head>
@@ -424,18 +447,16 @@
   <div class="cta-band">
     <div class="cta-left">
       <div class="cta-action">Jetzt kostenlos beraten lassen</div>
-      <div class="cta-phone">040 / 423 26 735</div>
+      <div class="cta-phone">040 / 560 69 787</div>
       <div class="cta-note">Mobil 24/7: 0171 / 1500 882 · Bürozeiten Mo–Fr 8–18 Uhr</div>
     </div>
-    <div class="cta-badge">
-      <span class="cta-badge-line1">Wir sprechen</span>
-      <span class="cta-badge-langs">DE · TR · EN</span>
-    </div>
+    <img class="cta-qr" src="./images/el-qr-code.png" alt="QR">
   </div>
 
   <!-- 5. FOOTER -->
   <div class="footer">
     <span class="erfahrung-badge">★ 20+ Jahre Erfahrung in der Pflege</span>
+    <span class="langs-tag">Wir sprechen <span>·</span> DE · TR · EN</span>
     <div class="contact-grid">
 
       <div class="ci">

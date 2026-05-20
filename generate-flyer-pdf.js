@@ -427,7 +427,7 @@ html, body {
   <div class="cta-band">
     <div class="cta-left">
       <div class="cta-action">Jetzt kostenlos beraten lassen</div>
-      <div class="cta-phone">040 / 423 26 735</div>
+      <div class="cta-phone">040 / 560 69 787</div>
       <div class="cta-note">Mobil 24/7: 0171 / 1500 882 · Kostenfreie Erstberatung</div>
     </div>
     <div class="cta-badge">

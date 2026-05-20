@@ -277,10 +277,19 @@ html, body {
   line-height: 1.45;
 }
 
-/* Website */
+/* Website + QR */
 .foot {
   padding-top: 2mm;
   border-top: 0.25mm solid #EBF0F6;
+  display: flex;
+  align-items: center;
+  gap: 2mm;
+}
+.foot .qr {
+  width: 6mm;
+  height: 6mm;
+  display: block;
+  flex-shrink: 0;
 }
 .website {
   font-size: 2mm;
@@ -288,6 +297,7 @@ html, body {
   color: #2A5298;
   letter-spacing: 0.01em;
 }
+
 </style>
 </head>
 <body>
@@ -308,7 +318,7 @@ html, body {
     <div class="contacts">
       <div class="crow">
         <span class="crow-label">Tel</span>
-        <span class="crow-val">040 / 423 26 735</span>
+        <span class="crow-val">040 / 560 69 787</span>
       </div>
       <div class="crow">
         <span class="crow-label">Mobil</span>
@@ -324,6 +334,7 @@ html, body {
       </div>
     </div>
     <div class="foot">
+      <img class="qr" src="${logoUrl.replace('elb-licht-trans.png','el-qr-code.png')}" alt="QR">
       <span class="website">pflegedienst-elblicht.de</span>
     </div>
   </div>

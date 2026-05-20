@@ -23,13 +23,17 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   title: {
-    default: "Pflegedienst Hamburg – ElbLicht | Häusliche Pflege St. Pauli",
-    template: "%s | ElbLicht Pflegedienst Hamburg",
+    default: "Pflegedienst St. Pauli – ElbLicht | Häusliche Pflege Hamburg",
+    template: "%s | ElbLicht Pflegedienst St. Pauli Hamburg",
   },
   metadataBase: new URL("https://pflegedienst-elblicht.de"),
   description:
-    "Professionelle ambulante Pflege in Hamburg. Türkisch- & deutschsprachig. Grundpflege, Behandlungspflege & kostenlose Pflegeberatung. ☎ 040 423 26 735",
+    "Ambulanter Pflegedienst in Hamburg-St. Pauli, Altona & Eimsbüttel. Grundpflege, Behandlungspflege & kostenlose Beratung – Deutsch & Türkisch. ☎ 040 423 26 735",
   keywords: [
+    "Pflegedienst St. Pauli",
+    "Pflegedienst Hamburg St. Pauli",
+    "ambulanter Pflegedienst St. Pauli",
+    "häusliche Pflege St. Pauli",
     "Pflegedienst Hamburg",
     "ambulanter Pflegedienst Hamburg",
     "häusliche Pflege Hamburg",
@@ -37,15 +41,14 @@ export const metadata: Metadata = {
     "türkischer Pflegedienst Hamburg",
     "türkischsprachiger Pflegedienst Hamburg",
     "kultursensible Pflege Hamburg",
-    "Pflegedienst Hamburg St. Pauli",
-    "Pflegedienst Hamburg Altona",
-    "Pflegedienst Hamburg Eimsbüttel",
+    "Pflegedienst Altona",
+    "Pflegedienst Eimsbüttel",
     "ElbLicht",
   ],
   openGraph: {
-    title: "Pflegedienst Hamburg – ElbLicht | Häusliche Pflege St. Pauli",
+    title: "Pflegedienst St. Pauli – ElbLicht | Häusliche Pflege Hamburg",
     description:
-      "Ambulante Pflege in Hamburg. Türkisch- & deutschsprachig. Kostenlose Erstberatung ☎ 040 423 26 735",
+      "Ambulanter Pflegedienst in Hamburg-St. Pauli. Deutsch & Türkisch. Kostenlose Erstberatung ☎ 040 423 26 735",
     url: "https://pflegedienst-elblicht.de",
     siteName: "ElbLicht Pflegedienst",
     locale: "de_DE",
@@ -74,7 +77,7 @@ const schemaOrg = {
   "@id": "https://pflegedienst-elblicht.de/#business",
   name: "ElbLicht Pflegedienst",
   description:
-    "Ambulanter Pflegedienst in Hamburg – Grundpflege, Behandlungspflege, Beratung. Deutsch-, türkisch- und englischsprachig.",
+    "Ambulanter Pflegedienst in Hamburg-St. Pauli – Grundpflege, Behandlungspflege, Beratung. Deutsch-, türkisch- und englischsprachig.",
   url: "https://pflegedienst-elblicht.de",
   telephone: "+494042326735",
   faxNumber: "+494042326805",

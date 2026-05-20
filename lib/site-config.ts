@@ -3,7 +3,7 @@ export const siteConfig = {
   tagline: "Ihr Licht in der häuslichen Pflege.",
   description:
     "Ambulanter Pflegedienst in Hamburg – mit Herz, Kompetenz und Menschlichkeit an Ihrer Seite.",
-  phoneDisplay: "040 / 423 26 735",
+  phoneDisplay: "040 / 560 69 787",
   phoneHref: "tel:+494042326735",
   mobileDisplay: "0171 / 1500 882",
   mobileHref: "tel:+491711500882",

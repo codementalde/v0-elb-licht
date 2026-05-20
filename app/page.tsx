@@ -74,7 +74,10 @@ export default function HomePage() {
               {t.home.titleA}{" "}
               <span className="text-[color:var(--sky)]">{t.home.titleHighlight}</span>.
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-foreground/75 md:text-xl text-pretty">
+            <p className="mt-4 text-base font-semibold tracking-tight text-[color:var(--sky)] md:text-lg">
+              {t.home.locationLead}
+            </p>
+            <p className="mt-3 max-w-xl text-lg leading-relaxed text-foreground/75 md:text-xl text-pretty">
               {t.home.subtitle}
             </p>
 

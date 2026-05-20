@@ -57,6 +57,7 @@ export type Dict = {
     eyebrow: string
     titleA: string
     titleHighlight: string
+    locationLead: string
     subtitle: string
     statArea: string
     statHours: string
@@ -228,9 +229,10 @@ const de: Dict = {
     withHeart: "Mit Herz dabei",
   },
   home: {
-    eyebrow: "Ambulanter Pflegedienst · Hamburg",
+    eyebrow: "Ambulanter Pflegedienst · St. Pauli",
     titleA: "Ihr Licht in der",
     titleHighlight: "häuslichen Pflege",
+    locationLead: "Pflegedienst in St. Pauli & Hamburg-West",
     subtitle:
       "Wir unterstützen Sie und Ihre Angehörigen dabei, den Alltag zuhause sicher, selbstbestimmt und würdevoll zu gestalten – mit Wärme, Verlässlichkeit und professioneller Pflege.",
     statArea: "Einsatzgebiet",
@@ -538,7 +540,7 @@ const de: Dict = {
         {
           title: "Kontakt",
           body: [
-            "Telefon: 040 / 423 26 735",
+            "Telefon: 040 / 560 69 787",
             "E-Mail: info@pflegedienst-elblicht.de",
           ],
         },
@@ -672,9 +674,10 @@ const en: Dict = {
     withHeart: "With heart",
   },
   home: {
-    eyebrow: "Home-care service · Hamburg",
+    eyebrow: "Home-care service · St. Pauli",
     titleA: "Your light in",
     titleHighlight: "home care",
+    locationLead: "Home care in St. Pauli & western Hamburg",
     subtitle:
       "We support you and your loved ones in making everyday life at home safe, self-determined and dignified — with warmth, reliability and professional care.",
     statArea: "Service area",
@@ -1113,9 +1116,10 @@ const tr: Dict = {
     withHeart: "Gönülden",
   },
   home: {
-    eyebrow: "Evde Bakım Hizmeti · Hamburg",
+    eyebrow: "Evde Bakım Hizmeti · St. Pauli",
     titleA: "Evde bakımda",
     titleHighlight: "sizin ışığınız",
+    locationLead: "St. Pauli ve Batı Hamburg'da evde bakım hizmeti",
     subtitle:
       "Sizi ve yakınlarınızı evde güvenli, onurlu ve özgün bir yaşam için destekliyoruz – sıcaklık, güven ve profesyonel bakımla.",
     statArea: "Hizmet bölgesi",
