@@ -80,7 +80,7 @@ const schemaOrg = {
     "Ambulanter Pflegedienst in Hamburg-St. Pauli – Grundpflege, Behandlungspflege, Beratung. Deutsch-, türkisch- und englischsprachig.",
   url: "https://pflegedienst-elblicht.de",
   telephone: "+494042326735",
-  faxNumber: "+494042326805",
+  faxNumber: "+494057261524",
   email: "info@pflegedienst-elblicht.de",
   address: {
     "@type": "PostalAddress",

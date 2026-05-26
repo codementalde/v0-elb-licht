@@ -7,7 +7,7 @@ export const siteConfig = {
   phoneHref: "tel:+494042326735",
   mobileDisplay: "0171 / 1500 882",
   mobileHref: "tel:+491711500882",
-  faxDisplay: "040 / 423 26 805",
+  faxDisplay: "040 / 572 615 24",
   email: "info@pflegedienst-elblicht.de",
   emailHref: "mailto:info@pflegedienst-elblicht.de",
   address: {
