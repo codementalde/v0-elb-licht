@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body {
+  width: 1400px;
+  height: 940px;
+  background: #1a1a1a;
+  overflow: hidden;
+}
+
+.scene {
+  position: relative;
+  width: 1400px;
+  height: 940px;
+}
+
+/* Arka plan foto */
+.car-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/*
+  C3 fotoğraf analizi (5152×3864 orijinal, 1400×940 gösterim):
+  Ölçek: 1400/5152 = 0.2717 (yatay), 940/3864 = 0.2432 (dikey)
+
+  Araç kabaca orijinalde:
+    - Ön kap kapısı ön kenarı: ~x=1400, arka kenar: ~x=2950
+    - Arka kapı ön kenarı: ~x=1400, arka kenar: ~x=2950 (tek kapı C3, ön kapı uzun)
+
+  Citroën C3 5 kapılı:
+    Ön kapı (sürücü): x ~1550–2450, y ~900–2800 (orijinal px)
+    Arka kapı:        x ~2450–3150, y ~900–2800
+
+  Gösterim koordinatları (×0.2717 yatay, ×0.2432 dikey):
+    Ön kapı:  left ~421, top ~219, width ~244, height ~461
+    Arka kapı: left ~665, top ~219, width ~190, height ~461
+
+  Tüm kapı yüzeyi (ön+arka birleşik): left~421, top~219, width~434, height~461
+  Alt trim (marşpiyel): ~y=2800 orijinal = ~681 gösterim
+*/
+
+/* Sticker kaplama — ön kapı tam alanı */
+.sticker-overlay {
+  position: absolute;
+  left: 548px;
+  top: 355px;
+  width: 200px;
+  height: 340px;
+  border: none;
+  background: transparent;
+  overflow: hidden;
+}
+
+/* Alt gradient şerit — marşpiyel boyunca */
+.car-stripe {
+  position: absolute;
+  left: 548px;
+  top: 700px;
+  width: 400px;
+  height: 5px;
+  background: linear-gradient(90deg, #0F2952, #2A5298, #4A90D9, #0d9488);
+  opacity: 0.90;
+  border-radius: 1px;
+}
+
+/* Başlık etiketi */
+.label {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.65);
+  color: #fff;
+  padding: 8px 24px;
+  border-radius: 6px;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.label span {
+  color: #4A90D9;
+}
+
+/* Boyut not */
+.note {
+  position: absolute;
+  bottom: 14px;
+  right: 20px;
+  color: rgba(255,255,255,0.45);
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+</style>
+</head>
+<body>
+<div class="scene">
+  <img class="car-photo" src="__CAR_URL__" alt="Citroën C3">
+
+  <!-- eCitiz orijinal logoyu beyazla ört -->
+  <div style="position:absolute;left:648px;top:450px;width:130px;height:80px;background:#f6f7f8;border-radius:4px;"></div>
+
+  <!-- Ön kapı overlay -->
+  <iframe class="sticker-overlay" src="__OVERLAY_URL__" scrolling="no" allowtransparency="true"></iframe>
+
+  <div class="car-stripe"></div>
+
+  <div class="label">ElbLicht Pflegedienst — <span>Ön Kapı Mockup</span></div>
+  <div class="note">Citroën C3 • 700×300 mm folyo tasarımı</div>
+</div>
+</body>
+</html>

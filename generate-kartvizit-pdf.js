@@ -233,7 +233,7 @@ html, body {
   border-radius: 0.25mm;
 }
 .person-title {
-  font-size: 1.7mm;
+  font-size: 2.2mm;
   font-weight: 600;
   color: #7A90A8;
   text-transform: uppercase;
@@ -252,7 +252,7 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1.5mm;
+  gap: 1.8mm;
 }
 
 .crow {
@@ -261,17 +261,17 @@ html, body {
   gap: 2.3mm;
 }
 .crow-label {
-  font-size: 1.6mm;
+  font-size: 2.1mm;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: #4A90D9;
-  min-width: 9mm;
+  min-width: 11mm;
   flex-shrink: 0;
   padding-top: 0.3mm;
 }
 .crow-val {
-  font-size: 2.2mm;
+  font-size: 2.8mm;
   font-weight: 400;
   color: #1E293B;
   line-height: 1.45;
@@ -292,7 +292,7 @@ html, body {
   flex-shrink: 0;
 }
 .website {
-  font-size: 2mm;
+  font-size: 2.6mm;
   font-weight: 600;
   color: #2A5298;
   letter-spacing: 0.01em;
@@ -367,8 +367,8 @@ async function generate() {
 
   // Her kişi için ön + arka — toplam 4 PDF
   for (const person of PEOPLE) {
-    const front = `kartvizit-${person.slug}-on-yuz.pdf`;
-    const back  = `kartvizit-${person.slug}-arka-yuz.pdf`;
+    const front = `kartvizit-${person.slug}-on-yuz-v2.pdf`;
+    const back  = `kartvizit-${person.slug}-arka-yuz-v2.pdf`;
 
     await pdfFromHTML(frontHTML(logoUrl),         front);
     await pdfFromHTML(backHTML(logoUrl, person),  back);

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html, body {
+  width: 506mm; height: 356mm;
+  background: #ffffff;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+.wrap {
+  position: relative;
+  width: 506mm;
+  height: 356mm;
+  background: #ffffff;
+}
+
+/* Ortak grid — ön kapı ile aynı ritim, orantılı pad */
+.safe {
+  position: absolute;
+  top: 26mm; left: 10mm; right: 10mm; bottom: 16mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Logo — panel genişliğinin %55'i */
+.logo-img {
+  width: 275mm;
+  height: auto;
+}
+
+/* Orta içerik */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  padding-left: 60mm;
+  gap: 7mm;
+}
+
+.service-row {
+  display: flex;
+  align-items: center;
+  gap: 6mm;
+}
+
+.dot {
+  width: 7mm;
+  height: 7mm;
+  border-radius: 50%;
+  background: #0d9488;
+  flex-shrink: 0;
+}
+
+.service-name {
+  font-size: 17mm;
+  font-weight: 600;
+  color: #0F2952;
+  letter-spacing: -0.01em;
+}
+
+/* Diller — alt */
+.lang-row {
+  display: flex;
+  gap: 8mm;
+  align-items: center;
+}
+.lang-item {
+  font-size: 8mm;
+  font-weight: 500;
+  color: #4A6080;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.lang-sep {
+  color: #B8C5D6;
+  font-size: 8mm;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="safe">
+    <img class="logo-img" src="__LOGO_URL__" alt="ElbLicht Pflegedienst">
+    <div class="content">
+      <div class="service-row"><div class="dot"></div><div class="service-name">Grundpflege</div></div>
+      <div class="service-row"><div class="dot"></div><div class="service-name">Behandlungspflege</div></div>
+      <div class="service-row"><div class="dot"></div><div class="service-name">Hauswirtschaft</div></div>
+      <div class="service-row"><div class="dot"></div><div class="service-name">Palliativpflege</div></div>
+    </div>
+    <div class="lang-row">
+      <span class="lang-item">Deutsch</span>
+      <span class="lang-sep">·</span>
+      <span class="lang-item">Türkçe</span>
+      <span class="lang-sep">·</span>
+      <span class="lang-item">English</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

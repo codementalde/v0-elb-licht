@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body {
+  width: 1400px; height: 820px;
+  background: #e8edf2;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+
+.scene {
+  position: relative;
+  width: 1400px;
+  height: 820px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Arka plan — yol/zemin hissi */
+.bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #d0d8e4 0%, #c4cdd8 55%, #b0bcc8 55%, #a8b4c0 100%);
+}
+
+/* Yol çizgileri */
+.road-line {
+  position: absolute;
+  bottom: 130px;
+  height: 4px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 2px;
+}
+.road-line-1 { left: 0; right: 0; }
+.road-line-2 { left: 0; right: 0; bottom: 110px; background: rgba(255,255,255,0.25); }
+
+/* ───── Citroën C3 SVG benzeri araç çizimi ───── */
+.car-container {
+  position: relative;
+  width: 1200px;
+  height: 580px;
+  margin-top: 60px;
+}
+
+/* Gövde ana renk: beyaz */
+.car-body {
+  position: absolute;
+  bottom: 80px;
+  left: 80px;
+  right: 80px;
+  top: 100px;
+  background: #f5f7fa;
+  border-radius: 60px 40px 30px 30px;
+  box-shadow:
+    inset 0 -8px 20px rgba(0,0,0,0.08),
+    0 10px 40px rgba(0,0,0,0.18),
+    0 2px 8px rgba(0,0,0,0.12);
+}
+
+/* Araç üst kısmı (çatı) */
+.car-roof {
+  position: absolute;
+  bottom: 220px;
+  left: 220px;
+  right: 200px;
+  top: 50px;
+  background: linear-gradient(180deg, #e8edf4 0%, #f0f3f7 100%);
+  border-radius: 50px 40px 20px 20px;
+  box-shadow: inset 0 4px 12px rgba(0,0,0,0.06);
+}
+
+/* Ön cam */
+.windshield-front {
+  position: absolute;
+  bottom: 215px;
+  left: 660px;
+  width: 200px;
+  height: 160px;
+  background: linear-gradient(135deg, rgba(160,200,240,0.6), rgba(200,225,245,0.4));
+  border-radius: 10px 30px 5px 5px;
+  border: 2px solid rgba(100,140,180,0.3);
+  transform: skewX(-8deg);
+}
+
+/* Arka cam */
+.windshield-rear {
+  position: absolute;
+  bottom: 215px;
+  left: 220px;
+  width: 160px;
+  height: 140px;
+  background: linear-gradient(135deg, rgba(160,200,240,0.5), rgba(200,225,245,0.35));
+  border-radius: 25px 8px 5px 5px;
+  border: 2px solid rgba(100,140,180,0.3);
+  transform: skewX(10deg);
+}
+
+/* Yan pencereler */
+.window-front {
+  position: absolute;
+  bottom: 218px;
+  left: 730px;
+  width: 155px;
+  height: 120px;
+  background: linear-gradient(135deg, rgba(160,200,240,0.55), rgba(180,215,240,0.4));
+  border-radius: 8px 8px 4px 4px;
+  border: 1.5px solid rgba(100,140,180,0.25);
+}
+.window-rear {
+  position: absolute;
+  bottom: 218px;
+  left: 510px;
+  width: 200px;
+  height: 125px;
+  background: linear-gradient(135deg, rgba(160,200,240,0.5), rgba(180,215,240,0.38));
+  border-radius: 8px 8px 4px 4px;
+  border: 1.5px solid rgba(100,140,180,0.25);
+}
+
+/* Kapı çizgileri */
+.door-line-1 {
+  position: absolute;
+  bottom: 82px;
+  left: 715px;
+  width: 2px;
+  height: 210px;
+  background: rgba(180,190,200,0.5);
+}
+.door-line-2 {
+  position: absolute;
+  bottom: 82px;
+  left: 500px;
+  width: 2px;
+  height: 210px;
+  background: rgba(180,190,200,0.4);
+}
+
+/* Siyah plastik alt marşpiyel */
+.rocker-panel {
+  position: absolute;
+  bottom: 78px;
+  left: 100px;
+  right: 100px;
+  height: 28px;
+  background: #2a2e33;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Çamurluklar (siyah plastik) */
+.fender-front {
+  position: absolute;
+  bottom: 62px;
+  right: 82px;
+  width: 180px;
+  height: 55px;
+  background: #2a2e33;
+  border-radius: 50%;
+  z-index: 2;
+}
+.fender-rear {
+  position: absolute;
+  bottom: 62px;
+  left: 82px;
+  width: 160px;
+  height: 55px;
+  background: #2a2e33;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* Tekerlekler */
+.wheel-front {
+  position: absolute;
+  bottom: 28px;
+  right: 98px;
+  width: 148px;
+  height: 148px;
+  background: radial-gradient(circle at 40% 35%, #555, #1a1a1a);
+  border-radius: 50%;
+  border: 8px solid #333;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4), inset 0 0 0 20px #222;
+  z-index: 3;
+}
+.wheel-front::after {
+  content: '';
+  position: absolute;
+  inset: 18px;
+  background: radial-gradient(circle at 40% 35%, #888, #444);
+  border-radius: 50%;
+}
+
+.wheel-rear {
+  position: absolute;
+  bottom: 28px;
+  left: 98px;
+  width: 148px;
+  height: 148px;
+  background: radial-gradient(circle at 40% 35%, #555, #1a1a1a);
+  border-radius: 50%;
+  border: 8px solid #333;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  z-index: 3;
+}
+.wheel-rear::after {
+  content: '';
+  position: absolute;
+  inset: 18px;
+  background: radial-gradient(circle at 40% 35%, #888, #444);
+  border-radius: 50%;
+}
+
+/* Far */
+.headlight {
+  position: absolute;
+  bottom: 155px;
+  right: 88px;
+  width: 70px;
+  height: 40px;
+  background: linear-gradient(90deg, #dde8f5, #f0f5ff);
+  border-radius: 5px 12px 12px 5px;
+  border: 2px solid rgba(100,140,180,0.4);
+}
+
+/* Arka stop lambası */
+.taillight {
+  position: absolute;
+  bottom: 155px;
+  left: 88px;
+  width: 55px;
+  height: 38px;
+  background: linear-gradient(90deg, #f0e0e0, #f8d0d0);
+  border-radius: 12px 5px 5px 12px;
+  border: 2px solid rgba(200,100,100,0.3);
+}
+
+/* Ayna */
+.mirror {
+  position: absolute;
+  bottom: 258px;
+  right: 254px;
+  width: 36px;
+  height: 22px;
+  background: #2a2e33;
+  border-radius: 4px 8px 4px 4px;
+  z-index: 5;
+}
+
+/* ═══════════════════════════════════════════════════
+   REKLAM KAPLAMA — ön + arka kapı birleşik yansıma
+   Tüm yan kapı alanı: left:100, bottom:82, w:930, h:208
+   ═══════════════════════════════════════════════════ */
+.sticker-front-door {
+  position: absolute;
+  bottom: 84px;
+  left: 102px;
+  width: 930px;
+  height: 208px;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.sticker-front-door img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+  opacity: 0.90;
+}
+
+/* Alt şerit araç alt kısmına uzanıyor */
+.sticker-stripe {
+  position: absolute;
+  bottom: 78px;
+  left: 100px;
+  right: 100px;
+  height: 6px;
+  background: linear-gradient(90deg, #0F2952, #2A5298, #4A90D9, #0d9488);
+  z-index: 4;
+}
+
+/* ─── Başlık / etiket ─── */
+.title-box {
+  position: absolute;
+  top: 18px;
+  left: 0; right: 0;
+  text-align: center;
+}
+.title-box h2 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #2a3a50;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.title-box p {
+  font-size: 11px;
+  color: #6a7a8a;
+  margin-top: 2px;
+}
+
+/* Boyut etiketi */
+.size-label {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: 10px;
+  color: #8090a0;
+  letter-spacing: 0.05em;
+}
+</style>
+</head>
+<body>
+<div class="scene">
+  <div class="bg"></div>
+  <div class="road-line road-line-1"></div>
+  <div class="road-line road-line-2"></div>
+
+  <div class="car-container">
+    <div class="title-box">
+      <h2>Ön Kapı Tasarımı — Mockup</h2>
+      <p>Citroën C3 üzerinde görünüm tahmini</p>
+    </div>
+
+    <!-- Araç gövdesi -->
+    <div class="car-body"></div>
+    <div class="car-roof"></div>
+
+    <!-- Camlar -->
+    <div class="windshield-front"></div>
+    <div class="windshield-rear"></div>
+    <div class="window-front"></div>
+    <div class="window-rear"></div>
+
+    <!-- Kapı çizgisi -->
+    <div class="door-line-1"></div>
+    <div class="door-line-2"></div>
+
+    <!-- Siyah plastikler -->
+    <div class="rocker-panel"></div>
+    <div class="fender-front"></div>
+    <div class="fender-rear"></div>
+
+    <!-- Tekerlekler -->
+    <div class="wheel-front"></div>
+    <div class="wheel-rear"></div>
+
+    <!-- Far / stop -->
+    <div class="headlight"></div>
+    <div class="taillight"></div>
+    <div class="mirror"></div>
+
+    <!-- REKLAM KAPLAMALARI -->
+    <div class="sticker-front-door">
+      <img src="__PREVIEW_URL__" alt="Ön Kapı Sticker">
+    </div>
+    <div class="sticker-stripe"></div>
+
+    <div class="size-label">700 × 300 mm trim • 3 mm bleed</div>
+  </div>
+</div>
+</body>
+</html>

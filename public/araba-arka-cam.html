@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body {
+  width: 1106mm; height: 456mm;
+  background: #ffffff;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+.wrap {
+  position: relative;
+  width: 1106mm;
+  height: 456mm;
+  background: #ffffff;
+}
+
+.safe {
+  position: absolute;
+  top: 14mm; left: 14mm; right: 14mm; bottom: 14mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40mm;
+}
+
+.logo-zone {
+  flex-shrink: 0;
+  width: 480mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-zone img {
+  width: 100%;
+  height: auto;
+}
+
+.text-zone {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14mm;
+}
+
+.label-top {
+  font-size: 14mm;
+  font-weight: 600;
+  color: #4A90D9;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+}
+
+.phone-line {
+  font-size: 64mm;
+  font-weight: 900;
+  color: #0F2952;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.web-line {
+  font-size: 32mm;
+  font-weight: 600;
+  color: #2A5298;
+  letter-spacing: 0.01em;
+}
+
+.lang-row {
+  display: flex;
+  gap: 10mm;
+  margin-top: 6mm;
+}
+.lang-item {
+  font-size: 11mm;
+  font-weight: 500;
+  color: #4A6080;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.lang-sep {
+  color: #B8C5D6;
+  font-size: 11mm;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="safe">
+    <div class="logo-zone">
+      <img src="__LOGO_URL__" alt="ElbLicht Pflegedienst">
+    </div>
+    <div class="text-zone">
+      <div class="label-top">Ambulanter Pflegedienst</div>
+      <div class="phone-line">040&thinsp;/&thinsp;560&thinsp;69&thinsp;787</div>
+      <div class="web-line">pflegedienst-elblicht.de</div>
+      <div class="lang-row">
+        <span class="lang-item">Deutsch</span>
+        <span class="lang-sep">·</span>
+        <span class="lang-item">Türkçe</span>
+        <span class="lang-sep">·</span>
+        <span class="lang-item">English</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

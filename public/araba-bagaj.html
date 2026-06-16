@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body {
+  width: 906mm; height: 306mm;
+  background: #ffffff;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+.wrap {
+  position: relative;
+  width: 906mm;
+  height: 306mm;
+  background: #ffffff;
+}
+
+.safe {
+  position: absolute;
+  top: 12mm; left: 12mm; right: 12mm; bottom: 12mm;
+  display: flex;
+  align-items: center;
+  gap: 24mm;
+}
+
+.logo-zone {
+  flex-shrink: 0;
+  width: 320mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-zone img {
+  width: 310mm;
+  height: auto;
+}
+
+.main-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5mm;
+}
+
+.phone-label {
+  font-size: 9mm;
+  font-weight: 600;
+  color: #4A90D9;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+}
+
+.phone-number {
+  font-size: 44mm;
+  font-weight: 800;
+  color: #0F2952;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.mobile-row {
+  display: flex;
+  align-items: center;
+  gap: 5mm;
+  margin-top: 4mm;
+}
+
+.mobile-badge {
+  font-size: 7mm;
+  font-weight: 700;
+  color: #ffffff;
+  background: #0d9488;
+  padding: 2.5mm 5mm;
+  border-radius: 1.5mm;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.mobile-number {
+  font-size: 20mm;
+  font-weight: 700;
+  color: #2A5298;
+  letter-spacing: -0.01em;
+}
+
+.web-address {
+  font-size: 18mm;
+  font-weight: 600;
+  color: #2A5298;
+  letter-spacing: 0.01em;
+  margin-top: 8mm;
+}
+
+.qr-zone {
+  flex-shrink: 0;
+  width: 110mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4mm;
+}
+.qr-zone img {
+  width: 95mm;
+  height: 95mm;
+}
+.qr-label {
+  font-size: 7mm;
+  font-weight: 500;
+  color: #7A90A8;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="safe">
+    <div class="logo-zone">
+      <img src="__LOGO_URL__" alt="ElbLicht Pflegedienst">
+    </div>
+    <div class="main-info">
+      <div class="phone-label">Jetzt anrufen</div>
+      <div class="phone-number">040&thinsp;/&thinsp;560&thinsp;69&thinsp;787</div>
+      <div class="mobile-row">
+        <span class="mobile-badge">24/7 Mobil</span>
+        <span class="mobile-number">0171&thinsp;/&thinsp;1500&thinsp;882</span>
+      </div>
+      <div class="web-address">pflegedienst-elblicht.de</div>
+    </div>
+    <div class="qr-zone">
+      <img src="__QR_URL__" alt="QR Code">
+      <div class="qr-label">Website scannen</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

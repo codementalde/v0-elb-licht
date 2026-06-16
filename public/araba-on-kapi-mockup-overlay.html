@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html, body {
+  width: 400px;
+  height: 680px;
+  background: transparent;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+.wrap {
+  width: 400px;
+  height: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 24px 20px 20px;
+}
+
+/* Logo */
+.logo-img {
+  width: 300px;
+  height: auto;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 8px rgba(255,255,255,0.6));
+}
+
+/* Teal ince çizgi */
+.divider {
+  width: 200px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #0d9488, #4A90D9, transparent);
+  margin: 14px 0 10px;
+  flex-shrink: 0;
+}
+
+/* Metin bloğu */
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: #0d9488;
+  text-shadow: 0 1px 4px rgba(255,255,255,0.9);
+}
+
+.name {
+  font-size: 58px;
+  font-weight: 900;
+  color: #0F2952;
+  line-height: 0.90;
+  letter-spacing: -0.04em;
+  text-shadow: 0 3px 10px rgba(255,255,255,0.7);
+}
+
+.name .light {
+  font-weight: 300;
+  color: #2A5298;
+}
+
+.sub {
+  font-size: 16px;
+  font-weight: 500;
+  color: #2A5298;
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+  text-shadow: 0 1px 4px rgba(255,255,255,0.8);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+  background: rgba(15,41,82,0.88);
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+.badge span {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.1em;
+}
+.badge .sep {
+  width: 1px; height: 10px;
+  background: rgba(255,255,255,0.3);
+}
+
+/* Alt gradient şerit */
+.stripe {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 10px;
+  background: linear-gradient(90deg, #0F2952, #2A5298, #4A90D9, #0d9488);
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <img class="logo-img" src="__LOGO_URL__" alt="ElbLicht">
+  <div class="divider"></div>
+  <div class="text">
+    <div class="label">Ambulanter</div>
+    <div class="name">Elb<span class="light">Licht</span><br>Pflege&shy;dienst</div>
+    <div class="sub">Hamburg &amp; Umgebung</div>
+    <div class="badge">
+      <span>Deutsch</span><div class="sep"></div>
+      <span>Türkisch</span><div class="sep"></div>
+      <span>Englisch</span>
+    </div>
+  </div>
+</div>
+<div class="stripe"></div>
+</body>
+</html>

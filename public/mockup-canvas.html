@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin:0; padding:0; }
+html, body { width:1400px; height:940px; background:#000; overflow:hidden; }
+canvas { display:block; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1400" height="940"></canvas>
+<script>
+const CAR_URL     = '__CAR_URL__';
+const STICKER_URL = '__STICKER_URL__';
+
+function loadImg(src) {
+  return new Promise((res, rej) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload  = () => res(img);
+    img.onerror = rej;
+    img.src = src;
+  });
+}
+
+async function draw() {
+  const canvas = document.getElementById('c');
+  const ctx    = canvas.getContext('2d');
+  const W = 1400, H = 940;
+
+  const car     = await loadImg(CAR_URL);
+  const sticker = await loadImg(STICKER_URL);
+
+  // ── 1. Araç fotoğrafını çiz (object-fit: cover mantığı) ──
+  const carAR  = car.width / car.height;   // 5152/3864 = 1.333
+  const canAR  = W / H;                    // 1400/940  = 1.489
+  let sx, sy, sw, sh;
+  if (carAR > canAR) {
+    // Yüksekliğe göre fit, yatayda kırp
+    sh = car.height;
+    sw = sh * canAR;
+    sx = (car.width - sw) / 2;
+    sy = 0;
+  } else {
+    // Genişliğe göre fit, dikeyde kırp
+    sw = car.width;
+    sh = sw / canAR;
+    sx = 0;
+    sy = (car.height - sh) / 2;
+  }
+  ctx.drawImage(car, sx, sy, sw, sh, 0, 0, W, H);
+
+  // ── 2. Ön kapı koordinatları (grid analizinden) ──
+  // Grid'de ölçülenler:
+  //   Ön kapı sol : x=548,  sağ : x=752  → genişlik=204
+  //   Kapı üstü   : y=355,  alt : y=700  → yükseklik=345
+  //   Çamurluk/kapı arası tam sınır ve pencere altı dahil
+
+  const doorX = 548, doorY = 355;
+  const doorW = 204, doorH = 345;
+
+  // ── 3. "eCitiz" logosunu araç rengiyle ört ──
+  // Hedef bölgeyi araçtan örnekle (blur ile yumuşat)
+  ctx.save();
+  ctx.filter = 'blur(2px)';
+  // eCitiz alanı: x≈648..790, y≈455..530
+  ctx.drawImage(canvas, 648, 455, 142, 75, 648, 455, 142, 75);
+  ctx.restore();
+  // Üstüne hafif beyaz dolgu
+  ctx.save();
+  ctx.globalAlpha = 0.75;
+  ctx.fillStyle = '#f4f5f6';
+  ctx.beginPath();
+  ctx.roundRect(645, 452, 150, 80, 4);
+  ctx.fill();
+  ctx.restore();
+
+  // ── 4. Sticker'ı kapı üzerine yapıştır ──
+  // Sticker 400×680 → kapı 204×345 → ölçek: 204/400=0.51, 345/680=0.507
+  ctx.save();
+  ctx.globalAlpha = 0.96;
+  ctx.drawImage(sticker, 0, 0, sticker.width, sticker.height, doorX, doorY, doorW, doorH);
+  ctx.restore();
+
+  // ── 5. Alt gradient şerit ──
+  const grad = ctx.createLinearGradient(doorX, 0, doorX + 400, 0);
+  grad.addColorStop(0,    '#0F2952');
+  grad.addColorStop(0.3,  '#2A5298');
+  grad.addColorStop(0.65, '#4A90D9');
+  grad.addColorStop(1,    '#0d9488');
+  ctx.save();
+  ctx.globalAlpha = 0.88;
+  ctx.fillStyle = grad;
+  ctx.beginPath();
+  ctx.roundRect(doorX, 700, 400, 5, 2);
+  ctx.fill();
+  ctx.restore();
+
+  // ── 6. Başlık etiketi ──
+  ctx.save();
+  ctx.fillStyle = 'rgba(0,0,0,0.62)';
+  ctx.beginPath();
+  ctx.roundRect(W/2 - 200, 12, 400, 28, 6);
+  ctx.fill();
+  ctx.font = 'bold 13px Arial';
+  ctx.fillStyle = '#fff';
+  ctx.textAlign = 'center';
+  ctx.fillText('ELBLICHT PFLEGEDIENST', W/2 - 60, 30);
+  ctx.fillStyle = '#4A90D9';
+  ctx.fillText('— ÖN KAPI MOCKUP', W/2 + 88, 30);
+  ctx.restore();
+
+  // ── 7. Boyut notu ──
+  ctx.save();
+  ctx.font = '11px Arial';
+  ctx.fillStyle = 'rgba(255,255,255,0.5)';
+  ctx.textAlign = 'right';
+  ctx.fillText('Citroën C3 • 700×300 mm folyo', W - 16, H - 12);
+  ctx.restore();
+
+  window._done = true;
+}
+draw();
+</script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+* { margin:0; padding:0; box-sizing:border-box; }
+
+/* Bu sadece overlay için — şeffaf arka plan, sadece tasarım öğeleri */
+/* Overlay boyutu: sadece ön kapı = 205×352 px */
+html, body {
+  width: 205px;
+  height: 352px;
+  background: transparent;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+.wrap {
+  position: relative;
+  width: 205px;
+  height: 352px;
+  background: transparent;
+}
+
+/* Logo üst-ortada */
+.logo-zone {
+  position: absolute;
+  top: 20px;
+  left: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-img {
+  width: 160px;
+  height: auto;
+  filter: drop-shadow(0 2px 6px rgba(255,255,255,0.5));
+}
+
+/* İnce teal çizgi */
+.accent-line {
+  position: absolute;
+  top: 130px;
+  left: 30px;
+  right: 30px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, #0d9488, #4A90D9, transparent);
+}
+
+/* Metin bloğu logo altında */
+.text-zone {
+  position: absolute;
+  top: 148px;
+  left: 8px;
+  right: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.label-top {
+  font-size: 6.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.20em;
+  color: #0d9488;
+  text-shadow: 0 1px 3px rgba(255,255,255,0.9);
+}
+
+.brand-name {
+  font-size: 28px;
+  font-weight: 900;
+  color: #0F2952;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(255,255,255,0.7);
+}
+
+.brand-name .light {
+  font-weight: 300;
+  color: #2A5298;
+}
+
+.brand-sub {
+  font-size: 9px;
+  font-weight: 500;
+  color: #2A5298;
+  letter-spacing: 0.05em;
+  text-shadow: 0 1px 4px rgba(255,255,255,0.8);
+}
+
+.lang-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 6px;
+  background: rgba(15,41,82,0.85);
+  border-radius: 3px;
+  padding: 3px 6px;
+}
+.lang-badge span {
+  font-size: 5.5px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.08em;
+}
+.lang-badge .sep {
+  width: 0.5px; height: 5px;
+  background: rgba(255,255,255,0.3);
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo-zone">
+    <img class="logo-img" src="http://127.0.0.1:55388/images/elb-licht-trans.png" alt="ElbLicht Pflegedienst">
+  </div>
+  <div class="accent-line"></div>
+  <div class="text-zone">
+    <div class="label-top">Ambulanter</div>
+    <div class="brand-name">Elb<span class="light">Licht</span><br>Pflege&shy;dienst</div>
+    <div class="brand-sub">Hamburg &amp; Umgebung</div>
+    <div class="lang-badge">
+      <span>DE</span><div class="sep"></div>
+      <span>TR</span><div class="sep"></div>
+      <span>EN</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

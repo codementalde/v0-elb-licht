@@ -445,7 +445,7 @@ html, body {
       </div>
       <div class="ci">
         <span class="ci-label">Fax</span>
-        <span class="ci-value">040 / 423 26 805</span>
+        <span class="ci-value">040 / 572 615 24</span>
       </div>
       <div class="ci ci-span">
         <span class="ci-label">Adresse</span>
@@ -481,7 +481,7 @@ async function generate() {
   // flyer.html'i doğrudan sunucudan yükle — print CSS bleed'i halleder
   await page.goto(`http://127.0.0.1:${port}/flyer.html`, { waitUntil: 'networkidle0' });
 
-  const outPath = path.join(__dirname, 'flyer-on-yuz.pdf');
+  const outPath = path.join(__dirname, 'flyer-on-yuz-v3.pdf');
   await page.pdf({
     path: outPath,
     width:  '154mm',
@@ -491,7 +491,7 @@ async function generate() {
   });
 
   await page.close();
-  console.log('✓  flyer-on-yuz.pdf  (154×216 mm, 3 mm bleed)');
+  console.log('✓  flyer-on-yuz-v3.pdf  (154×216 mm, 3 mm bleed)');
   console.log('   Trim: 148×210 mm (DIN A5)  |  Güvenli alan: sayfa kenarından 6 mm');
   console.log('PDF hazır:', __dirname);
 

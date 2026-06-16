@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body {
+  width: 806mm; height: 256mm;
+  background: #ffffff;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+.wrap {
+  position: relative;
+  width: 806mm;
+  height: 256mm;
+  background: #ffffff;
+}
+
+.safe {
+  position: absolute;
+  top: 14mm; left: 14mm; right: 14mm; bottom: 14mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30mm;
+}
+
+.logo-zone {
+  flex-shrink: 0;
+  width: 360mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-zone img {
+  width: 100%;
+  height: auto;
+}
+
+.text-zone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4mm;
+}
+
+.phone-label {
+  font-size: 8mm;
+  font-weight: 600;
+  color: #7A90A8;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+}
+
+.phone-number {
+  font-size: 36mm;
+  font-weight: 800;
+  color: #0F2952;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.web-line {
+  font-size: 11mm;
+  font-weight: 600;
+  color: #2A5298;
+  letter-spacing: 0.01em;
+  margin-top: 2mm;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="safe">
+    <div class="logo-zone">
+      <img src="__LOGO_URL__" alt="ElbLicht Pflegedienst">
+    </div>
+    <div class="text-zone">
+      <div class="phone-label">Jetzt anrufen</div>
+      <div class="phone-number">040&thinsp;/&thinsp;560&thinsp;69&thinsp;787</div>
+      <div class="web-line">pflegedienst-elblicht.de</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

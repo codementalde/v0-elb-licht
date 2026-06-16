@@ -1,5 +1,6 @@
 "use client"
 
+import { Suspense } from "react"
 import { useActionState } from "react"
 import { useFormStatus } from "react-dom"
 import { useSearchParams } from "next/navigation"
@@ -65,7 +66,7 @@ function ConsentText() {
   )
 }
 
-export default function BewerbenPage() {
+function BewerbenContent() {
   const searchParams = useSearchParams()
   const stelle = searchParams.get("stelle") ?? ""
   const [state, formAction] = useActionState(submitBewerben, initial)
@@ -252,5 +253,12 @@ export default function BewerbenPage() {
         </div>
       </section>
     </>
+  )
+}
+export default function BewerbenPage() {
+  return (
+    <Suspense>
+      <BewerbenContent />
+    </Suspense>
   )
 }
