@@ -22,6 +22,7 @@ export function Navbar() {
     { href: "/", label: t.nav.home },
     { href: "/leistungen", label: t.nav.services },
     { href: "/ueber-uns", label: t.nav.about },
+    { href: "/karriere", label: t.nav.karriere },
     { href: "/blog", label: t.nav.blog },
     { href: "/kontakt", label: t.nav.contact },
   ]

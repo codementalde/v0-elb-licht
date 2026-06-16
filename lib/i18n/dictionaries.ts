@@ -18,6 +18,7 @@ export type Dict = {
     contact: string
     consultation: string
     blog: string
+    karriere: string
   }
   cta: {
     requestConsultation: string
@@ -193,6 +194,7 @@ const de: Dict = {
     contact: "Kontakt",
     consultation: "Beratung anfordern",
     blog: "Blog",
+    karriere: "Karriere",
   },
   cta: {
     requestConsultation: "Beratung anfordern",
@@ -638,6 +640,7 @@ const en: Dict = {
     contact: "Contact",
     consultation: "Request consultation",
     blog: "Blog",
+    karriere: "Career",
   },
   cta: {
     requestConsultation: "Request consultation",
@@ -1080,6 +1083,7 @@ const tr: Dict = {
     contact: "İletişim",
     consultation: "Danışmanlık talep et",
     blog: "Blog",
+    karriere: "Kariyer",
   },
   cta: {
     requestConsultation: "Danışmanlık talep et",
